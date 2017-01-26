@@ -1,6 +1,17 @@
-# TODO : Your Project Name
+# Share Class Notes
 
-TODO : Please provide a detailed project description.
+1. What is the proposed name for your Web application?
+    - share-class-notes
+2. Who is the target audience for your Web application?
+    - Graduate students at iSchool at University of Pittsburgh, for the time being.
+3. What problem is it intended to solve for the target audience?
+    - Some foreign students may have difficulties in understanding what their professors teach during the class, so they may perform bad in the final exam. So I will provide a platform for them to share their class notes in order to have a better understanding about the class materials.
+    - Besides, I will provide discussion board for students. So they can learn from each other, and at the same time, students who have the same class can have a better connection.
+4. How will it meet the minimum project requirements?
+    - My site will support CRUD (create, read, update and delete) funcions for students.
+        -- 
+5. Why is your proposed Web application unique or creative beyond simply meeting the minimum requirements?
+     - My site will customize the experience to the users behaviors. I'll track site usage, interactions with others, and content viewed to provide a customized experience. I'll engage active users with advice on how to advance their training. I'll engage inactive users by sending motivational messages encouraging them to join the community.
 
 ## Build status
 
