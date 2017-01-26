@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - TBD.
 
-## [v1.2] - 2017-01-28
+## [v1.2] - 2017-01-26
 ### Added
 - Answered in README.md
     - What is the proposed name for your Web application?
