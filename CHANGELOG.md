@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - TBD.
 
+## [v1.2.1] - 2017-01-26
+#### Added
+ - Add CHANGELOG.md link in README.md
+
 ## [v1.2] - 2017-01-26
 ### Added
 - Answered in README.md
@@ -23,5 +27,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Deployed to Heroku.
 
 [Unreleased]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.2...HEAD
+[v1.2.1]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.2...v1.2.1
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.1...v1.2
 [v1.1]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/...v1.1
