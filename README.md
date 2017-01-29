@@ -1,34 +1,8 @@
-# Share Class Notes
-
-1. What is the proposed name for your Web application?
-    - share-class-notes
-2. Who is the target audience for your Web application?
-    - Sstudents at University of Pittsburgh, for the time being.
-3. What problem is it intended to solve for the target audience?
-    - Some foreign students may have difficulties in understanding what their professors teach during the class, so they may perform bad in the final exam. So I will provide a platform for them to share their class notes in order to have a better understanding about the class materials.
-    - Besides, I will provide discussion board for students. So they can learn from each other, and at the same time, students who have the same class can have a better connection.
-4. How will it meet the minimum project requirements?
-    - My site will support CRUD (create, read, update and delete) funcions for students. And all department information and class information will be created by the administrator.
-    - CREATE: users' account, class notes
-    - READ: all users' public profiles, class notes, department list and class list, class information
-    - UPDATE: users' own profile, users' own class notes
-    - DELETE: users' account, users' own class notes
-5. Why is your proposed Web application unique or creative beyond simply meeting the minimum requirements?
-    - Students can choose which class to follow. If a student follows a class, he/she could see all class notes uploaded for that class even if he/she actually doesn't register it.
-    - Grading system. Students can anonymously give a grade for a class note, and this grade is also used to evaluate the user who uploads it.
-- Comment system. Students can give comments under each class note. 
-
 
 
 ## Build status
 
 [![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-April777.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-April777)
-
-
-## Changelog
-
-[Changelog](CHANGELOG.md)
-
 
 ## Web Site
 
