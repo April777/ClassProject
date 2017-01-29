@@ -3,9 +3,6 @@
 
 [![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-April777.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-April777)
 
-## Changelog
-
-[Changelog](CHANGELOG.md)
 
 ## Web Site
 
