@@ -18,13 +18,10 @@
     - Grading system. Students can anonymously give a grade for a class note, and this grade is also used to evaluate the user who uploads it.
     - Comment system. Students can give comments under each class note. 
 
+
 ## Build status
 
 [![Build Status](https://travis-ci.org/infsci2560sp17/full-stack-web-April777.svg?branch=master)](https://travis-ci.org/infsci2560sp17/full-stack-web-April777)
-
-## Changelog
-
-[Changelog](CHANGELOG.md)
 
 ## Web Site
 
