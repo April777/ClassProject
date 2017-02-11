@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 public class Slide {
     
-    private static final long serialVersionUID = 1l;
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +27,13 @@ public class Slide {
         this.title = null;
         this.briefIntro = null;
         this.rating = Long.MAX_VALUE;
+    }
+    
+    public Slide(Long id, String title, String briefIntro, Long rating){
+        this.id = id;
+        this.title = title;
+        this.briefIntro = briefIntro;
+        this.rating = rating;
     }
     
     @Override
