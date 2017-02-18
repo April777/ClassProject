@@ -67,6 +67,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-devtools</artifactId>
++            <optional>true</optional>
++        </dependency>
++        <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <scope>test</scope>
@@ -156,6 +161,14 @@
                     <failOnError>true</failOnError>
                 </configuration>
             </plugin>
+            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <version>2.3.2</version>
++                <configuration>
++                    <showDeprecation>true</showDeprecation>
++                </configuration>
++            </plugin>
         </plugins>
     </build>
 </project>
