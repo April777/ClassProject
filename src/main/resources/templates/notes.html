@@ -24,6 +24,7 @@
                     <td data-th-text="${note.classCode}"></td>
                     <td data-th-text="${note.briefIntro}"></td>
                     <td data-th-text="${note.rating}"></td>
+                    <td data-th-text="${note.fileDir}"></td>
              </tr>
         </table>
     </div>
@@ -44,7 +45,7 @@
         Brief Introduction:<br />
         <textarea rows="10" cols="30" name="briefIntro"></textarea><br />
         Upload from your computer:<br />
-        <input type="file" multiple="multiple" name="file" /><br />
+        <input type="file" multiple="multiple" name="fileDir" /><br />
         <input type="submit" value="Add Note" />
     </form>
     
