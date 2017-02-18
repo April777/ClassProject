@@ -34,6 +34,7 @@ public class Note {
     protected Long classCode;
     protected String briefIntro;
     protected double rating;
+    protected String fileDir;
     
     public Note(){
         this.id = Long.MAX_VALUE;
@@ -42,15 +43,17 @@ public class Note {
         this.classCode = 0L;
         this.briefIntro = null;
         this.rating = 0;
+        this.fileDir = null;
     }
     
-    public Note(Long id, String name, SchoolCode schoolCode, Long classCode, String briefIntro, double rating){
+    public Note(Long id, String name, SchoolCode schoolCode, Long classCode, String briefIntro, double rating, String fileDir){
         this.id = id;
         this.name = name;
         this.schoolCode = schoolCode;
         this.classCode = classCode;
         this.briefIntro = briefIntro;
         this.rating = rating;
+        this.fileDir = fileDir;
     }
     
     @Override
@@ -150,5 +153,19 @@ public class Note {
      */
     public void setBriefIntro(String briefIntro){
         this.briefIntro = briefIntro;
+    }
+    
+    /**
+     * @param set note dir
+     */
+    public void setFileDir(String fileDir){
+        this.fileDir = fileDir;
+    }
+    
+    /**
+     * @return the file folder
+     */
+    public String getFileDir(){
+        return this.fileDir;
     }
 }
