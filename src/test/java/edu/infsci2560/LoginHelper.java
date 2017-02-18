@@ -21,7 +21,7 @@ import org.springframework.util.MultiValueMap;
 
 /**
  *
- * @author kolobj
+ * @author April
  */
 public class LoginHelper {
         public static ResponseEntity<String> login(TestRestTemplate template, String route, String userName, String password) {
