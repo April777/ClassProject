@@ -1,6 +1,5 @@
 package edu.infsci2560.controllers;
 
-import edu.infsci2560.models.Greeting;
 import java.nio.charset.Charset;
 import org.junit.Before;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -59,7 +58,7 @@ public class ApiControllerTest {
 //                .andExpect(content().contentType(contentType))                
 //                .andExpect(jsonPath("$.id", is(expected.getId())))
 //                .andExpect(jsonPath("$.name", is(expected.getName())));
-          assert(true);
+        assert(true);
     }
     
     @Test
@@ -71,6 +70,6 @@ public class ApiControllerTest {
 //                .andExpect(content().contentType(contentType))                
 //                .andExpect(jsonPath("$.id", is(expected.getId())))
 //                .andExpect(jsonPath("$.name", is(expected.getName())));
-          assert(true);
-    }
+        assert(true);
+   }
 }
