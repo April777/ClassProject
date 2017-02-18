@@ -24,7 +24,9 @@
                     <td data-th-text="${note.classCode}"></td>
                     <td data-th-text="${note.briefIntro}"></td>
                     <td data-th-text="${note.rating}"></td>
-                    <td data-th-text="${note.fileDir}"><a href="${note.fileDir}" download="noteFile"></td>
+                    <a href="${note.fileDir}" download="noteFile">
+                        <td data-th-text="${note.fileDir}"></td>
+                    </a>
              </tr>
         </table>
     </div>
