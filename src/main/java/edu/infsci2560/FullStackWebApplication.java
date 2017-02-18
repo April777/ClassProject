@@ -21,8 +21,8 @@ public class FullStackWebApplication {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
 
         NoteRepository repository = ctx.getBean(NoteRepository.class);
-        repository.save(new Note(1L, "Note1 for web", SchoolCode.INFSCI, 2560L, "mvc section"));
-        repository.save(new Note(2L, "Note2 for web", SchoolCode.INFSCI, 2560L, "reposiitory section"));
-        repository.save(new Note(3L, "Note3 for web", SchoolCode.INFSCI, 2560L, "git section"));
+        repository.save(new Note(1L, "Note1 for web", SchoolCode.INFSCI, 2560L, "mvc section", 0.5));
+        repository.save(new Note(2L, "Note2 for web", SchoolCode.INFSCI, 2560L, "reposiitory section", 0.6));
+        repository.save(new Note(3L, "Note3 for web", SchoolCode.INFSCI, 2560L, "git section",0.5));
     }
 }

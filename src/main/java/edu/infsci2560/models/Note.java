@@ -32,7 +32,7 @@ public class Note {
     protected SchoolCode schoolCode;
     protected Long classCode;
     protected String briefIntro;
-    protected Long rating;
+    protected double rating;
     
     public Note(){
         this.id = Long.MAX_VALUE;
@@ -40,15 +40,16 @@ public class Note {
         this.schoolCode = SchoolCode.UNKNOWN;
         this.classCode = 0L;
         this.briefIntro = null;
-        this.rating = 0L;
+        this.rating = 0;
     }
     
-    public Note(Long id, String name, SchoolCode schoolCode, Long classCode, String briefIntro){
+    public Note(Long id, String name, SchoolCode schoolCode, Long classCode, String briefIntro, double rating){
         this.id = id;
         this.name = name;
         this.schoolCode = schoolCode;
         this.classCode = classCode;
         this.briefIntro = briefIntro;
+        this.rating = rating;
     }
     
     @Override
@@ -125,14 +126,14 @@ public class Note {
     /**
      * @return the rating
      */
-    public Long getRating(){
+    public double getRating(){
         return rating;
     }
     
     /**
      * @param rating the rating to set
      */
-    public void setRating(Long rating){
+    public void setRating(double rating){
         this.rating = rating;
     }
     
