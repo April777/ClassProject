@@ -19,7 +19,7 @@
             </tr>                
             <tr data-th-each="note : ${notes}">
                 <td data-th-text="${note.id}"></td>
-                <td data-th-text="${note.title}"></td>
+                <td data-th-text="${note.name}"></td>
                 <td data-th-text="${note.schoolCode}"></td>
                 <td data-th-text="${note.classCode}"></td>
                 <td data-th-text="${note.briefIntro}"></td>
@@ -29,7 +29,7 @@
     </div>
     
     <hr/>
-    Upload Slide<br/>
+    Upload Note<br/>
     <form data-th-action="@{notes/add}" name="addNoteForm" method="post">
         Title:<input type="text" name="name" /><br />
         School Code: <br />
@@ -40,6 +40,7 @@
         <input type="radio" name="schoolCode" value="COE" />COE<br />
         <input type="radio" name="schoolCode" value="COEA" />COEA<br />
         <input type="radio" name="schoolCode" value="COEE" />COEE<br />
+        Class Code:<input type="text" name="classCode" /><br />
         Brief Introduction:<br />
         <textarea rows="10" cols="30"></textarea><br />
         <input type="submit" value="Add Note" />
