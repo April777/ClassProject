@@ -1,10 +1,10 @@
 package edu.infsci2560.repositories;
 
-import edu.infsci2560.models.Slide;
+import edu.infsci2560.models.Note;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * @author April
  */
-public interface SlideRepository extends PagingAndSortingRepository<Slide, Long>{
+public interface NoteRepository extends PagingAndSortingRepository<Note, Long>{
 }

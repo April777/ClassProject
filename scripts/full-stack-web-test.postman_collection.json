@@ -88,9 +88,9 @@
 			"response": []
 		},
 		{
-			"name": "Get Slide's",
+			"name": "Get Note's",
 			"request": {
-				"url": "http://localhost:5000/public/api/slides",
+				"url": "http://localhost:5000/public/api/notes",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -99,9 +99,9 @@
 			"response": []
 		},
 		{
-			"name": "Add Slide",
+			"name": "Add Note",
 			"request": {
-				"url": "http://localhost:5000/public/api/slides",
+				"url": "http://localhost:5000/public/api/notes",
 				"method": "POST",
 				"header": [
 					{
@@ -117,7 +117,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"slides for web\",\n    \"briefIntro\": \"HTML and css\"\n}"
+					"raw": "{\n    \"title\": \"notes for web\",\n    \"briefIntro\": \"HTML and css\"\n}"
 				},
 				"description": ""
 			},

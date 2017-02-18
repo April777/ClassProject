@@ -1,7 +1,8 @@
 package edu.infsci2560.services;
 
-import edu.infsci2560.models.Slide;
-import edu.infsci2560.repositories.SlideRepository;
+import edu.infsci2560.models.Note;
+import edu.infsci2560.models.Note.SchoolCode;
+import edu.infsci2560.repositories.NoteRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,27 +22,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author April
  */
 @RestController
-@RequestMapping("/public/api/slides")
-public class SlideService {
+@RequestMapping("/public/api/notes")
+public class NoteService {
     
     @Autowired
-    private SlideRepository repository;
+    private NoteRepository repository;
     
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Iterable<Slide>> list() {
+    public ResponseEntity<Iterable<Note>> list() {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.findAll(), headers, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Slide> list(@PathVariable("id") Long id) {
+    public ResponseEntity<Note> list(@PathVariable("id") Long id) {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.findOne(id), headers, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
-    public ResponseEntity<Slide> create(@RequestBody Slide slide) {
+    public ResponseEntity<Note> create(@RequestBody Note note) {
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(repository.save(slide), headers, HttpStatus.OK);
+        return new ResponseEntity<>(repository.save(note), headers, HttpStatus.OK);
     }
 }
