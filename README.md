@@ -33,11 +33,10 @@
 
 ## Key Features
 
-TODO : Please list key features of your project.
-
 * Key Feature 1
+Users can see all notes uploaded before.
 * Key Feature 2
-* Key Feature N
+Users can add new notes.
 
 ## Project Details
 

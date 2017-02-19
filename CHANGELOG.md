@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - TBD.
 
+## [v1.3] - 2017-02-18
+### Added
+- Add Entity, Repository, Service, Controller, html page
+- Modify README.md
+- Modify CHANGELOG.md
+
 ## [v1.2] - 2017-01-28
 ### Added
 - Add CHANGELOG.md link in README.md
@@ -23,6 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Configured developer workspace.
 - Deployed to Heroku.
 
-[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.2...HEAD
+[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.3...HEAD
+[v1.3]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.2...v1.3
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.1...v1.2
 [v1.1]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/...v1.1
