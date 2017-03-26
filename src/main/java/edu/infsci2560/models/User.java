@@ -49,7 +49,7 @@ public class User {
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", identity=" + this.identity + ", profile=" + this.profile + ", friends=" + this.friends + "]\n";
+        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", identity=" + this.identity + ", profile=" + this.profile + ", friends=" + this.friends + "]\n";
     }
     
     @Override
