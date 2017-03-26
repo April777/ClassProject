@@ -1,4 +1,4 @@
-package edu.infsci2560.services.storage;
+package edu.infsci2560.storage;
 
 public class StorageException extends RuntimeException {
 

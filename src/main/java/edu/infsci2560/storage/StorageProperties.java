@@ -1,4 +1,4 @@
-package edu.infsci2560.services.storage;
+package edu.infsci2560.storage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package edu.infsci2560.services;
+package edu.infsci2560.storage;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,4 +1,4 @@
-package edu.infsci2560.services.storage;
+package edu.infsci2560.storage;
 
 import java.io.File;
 import org.springframework.beans.factory.annotation.Autowired;
