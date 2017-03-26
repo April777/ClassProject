@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 - TBD.
 
+## [v1.4] - 2017-03-25
+### Added
+- Add three more Entity, Repository, Service, Controller, including user, comment, course
+- Change html and add css
+- Modify CHANGELOG.md
+
 ## [v1.3] - 2017-02-18
 ### Added
 - Add Entity, Repository, Service, Controller, html page

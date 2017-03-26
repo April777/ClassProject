@@ -2,23 +2,15 @@
 <html>
     <head>
         <title>Welcome to your notes!</title>
-        <link rel="stylesheet" type="text/css" href="../static/main.css">
+        <link rel="stylesheet" type="text/css" href="../static/main.css" />
     </head>
     <body>
         <h1>Welcome!</h1>
-        <div class="left">
-            <table id="course">
-                <tr>
-                    <th>Course</th>
-                </tr>                
-                <tr data-th-each="course : ${courses}">
-                    <a href="/courseList"><td data-th-text="${course.name}"></td></a>
-                </tr>
-            </table>
-        </div>
+
         <div class="center">
             <p id="welcome">Hi, welcome you to my website! Share-Class-Notes provides students a platform to communicate, share the knowledge.Hope you like it! :)</p>
             <p id="login">Click <a data-th-href="@{/notes}">here</a> to login.</p>
+            <p id="course">Click <a data-th-href="@{/courseList}">here</a> to see all courses.</p>
         </div>    
     </body>
 </html>
