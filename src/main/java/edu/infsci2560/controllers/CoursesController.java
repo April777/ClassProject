@@ -30,10 +30,4 @@ public class CoursesController {
     public ModelAndView index(){
         return new ModelAndView("courses", "courses", repository.findAll());
     }
-    
-    @RequestMapping(value = "courses/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView create(@ModelAttribute @Valid Course courses, BindingResult result){
-        repository.save(courses);
-        return new ModelAndView("courses", "courses", repository.findAll());
-    }
 }
