@@ -33,6 +33,10 @@
     
     <hr/>
     Upload Note<br/>
+    <hr />
+        <a data-th-href="@{/files}">Upload a File</a>
+    <hr />
+    
     <form data-th-action="@{/notes/add}" name="addNoteForm" method="post">
         Title:<input type="text" name="name" /><br />
         School Code: <br />
