@@ -11,6 +11,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * @author April
  */
 
+@Entity
 public class Comment {
                
     private static final long serialVersionUID = 1L;
