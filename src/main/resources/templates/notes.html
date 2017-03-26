@@ -12,16 +12,15 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>School Code</th>
                 <th>Class Code</th>
                 <th>Brief Introduction</th>
                 <th>Rating</th>
+                <th>Download</th>
             </tr>                
             <tr data-th-each="note : ${notes}">
                     <td data-th-text="${note.id}"></td>
                     <td data-th-text="${note.name}"></td>
-                    <td data-th-text="${note.schoolCode}"></td>
-                    <td data-th-text="${note.classCode}"></td>
+                    <td data-th-text="${note.courseId}"></td>
                     <td data-th-text="${note.briefIntro}"></td>
                     <td data-th-text="${note.rating}"></td>
                     <a href="${note.fileDir}" download="noteFile">
@@ -38,21 +37,20 @@
     <hr />
     
     <form data-th-action="@{/notes/add}" name="addNoteForm" method="post">
-        Title:<input type="text" name="name" /><br />
-        School Code: <br />
-        <input type="radio" name="schoolCode" value="UNKNOWN" checked="checked" />UNKOWN<br />
-        <input type="radio" name="schoolCode" value="INFSCI" />INFSCI<br />
-        <input type="radio" name="schoolCode" value="LING" />LING<br />
-        <input type="radio" name="schoolCode" value="CMCS" />CMCS<br />
-        <input type="radio" name="schoolCode" value="COE" />COE<br />
-        <input type="radio" name="schoolCode" value="COEA" />COEA<br />
-        <input type="radio" name="schoolCode" value="COEE" />COEE<br />
-        Class Code:<input type="text" name="classCode" /><br />
+        Title:<input type="text" name="name" /><br />       
+        Class Code:<input type="text" name="courseId" /><br />
         Brief Introduction:<br />
         <textarea rows="10" cols="30" name="briefIntro"></textarea><br />
         Upload from your computer:<br />
         <input type="file" multiple="multiple" name="fileDir" /><br />
+        <input type="text" name="userId" hidden=true />
         <input type="submit" value="Add Note" />
+    </form>
+    
+    <form data-th-action="@{/files}" name="uploadFileForm" method="POST" enctype="multipart/form-data" >                
+<!--            <form data-th-action="@{/files(${_csrf.parameterName}=${_csrf.token})}" name="uploadFileForm" method="POST" enctype="multipart/form-data" >                                -->
+                File to upload:<input type="file" name="file" /><br />
+                <input type="submit" value="Upload" />
     </form>
     
     <hr />
