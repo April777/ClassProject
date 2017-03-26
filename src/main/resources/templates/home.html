@@ -2,54 +2,12 @@
 <html>
     <head>
         <title>Welcome to your notes!</title>
+        <link rel="stylesheet" type="text/css" href="../static/main.css">
     </head>
     <body>
         <h1>Welcome!</h1>
 
-        <p>Click <a data-th-href="@{/notes}">here</a> to login.</p>
-        
-        <div id="notes">
-        <table style="border: 1px solid black">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Class Code</th>
-                <th>Contributor</th>
-                <th>Brief Introduction</th>
-                <th>Rating</th>
-                <th>Download</th>
-            </tr>                
-            <tr data-th-each="note : ${notes}">
-                    <td data-th-text="${note.id}"></td>
-                    <td data-th-text="${note.name}"></td>
-                    <td data-th-text="${note.courseId}"></td>
-                    <td data-th-text="${note.userId}"></td>
-                    <td data-th-text="${note.briefIntro}"></td>
-                    <td data-th-text="${note.rating}"></td>
-                    <a href="${note.fileDir}" download="noteFile">
-                        <td data-th-text="${note.fileDir}"></td>
-                    </a>
-             </tr>
-        </table>
-    </div>
-        
-        
-    <div id="courses">
-        <table style="border: 1px solid black">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>School</th>
-                <th>Semester</th>
-            </tr>                
-            <tr data-th-each="course : ${courses}">
-                    <td data-th-text="${course.id}"></td>
-                    <td data-th-text="${course.name}"></td>
-                    <td data-th-text="${course.school}"></td>
-                    <td data-th-text="${course.semester}"></td>
-             </tr>
-        </table>
-    </div>
+        <p id="login">Click <a data-th-href="@{/notes}">here</a> to login.</p>
     
     </body>
 </html>
