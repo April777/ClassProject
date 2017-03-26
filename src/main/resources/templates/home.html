@@ -6,8 +6,19 @@
     </head>
     <body>
         <h1>Welcome!</h1>
-
-        <p id="login">Click <a data-th-href="@{/notes}">here</a> to login.</p>
-    
+        <div class="left">
+            <table id="course">
+                <tr>
+                    <th>Course</th>
+                </tr>                
+                <tr data-th-each="course : ${courses}">
+                    <a href="/courseList"><td data-th-text="${course.name}"></td></a>
+                </tr>
+            </table>
+        </div>
+        <div class="center">
+            <p id="welcome">Hi, welcome you to my website! Share-Class-Notes provides students a platform to communicate, share the knowledge.Hope you like it! :)</p>
+            <p id="login">Click <a data-th-href="@{/notes}">here</a> to login.</p>
+        </div>    
     </body>
 </html>

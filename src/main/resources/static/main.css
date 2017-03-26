@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-#login {
+#welcome,#login {
     margin: auto;
     width: 60%;
     border: 3px solid #73AD21;

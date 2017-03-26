@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+</head>
+<body>
+
+    <h1>Notes list</h1>
+
+    <div>
+        <table style="border: 1px solid black">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Class Code</th>
+                <th>Brief Introduction</th>
+                <th>Rating</th>
+                <th>Download</th>
+            </tr>                
+            <tr data-th-each="note : ${notes}">
+                    <td data-th-text="${note.id}"></td>
+                    <td data-th-text="${note.name}"></td>
+                    <td data-th-text="${note.courseId}"></td>
+                    <td data-th-text="${note.briefIntro}"></td>
+                    <td data-th-text="${note.rating}"></td>
+                    <a href="${note.fileDir}" download="noteFile">
+                        <td data-th-text="${note.fileDir}"></td>
+                    </a>
+             </tr>
+        </table>
+    </div>
+</body>
+</html>
