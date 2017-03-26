@@ -1,7 +1,6 @@
 package edu.infsci2560;
 
 import edu.infsci2560.models.Note;
-import edu.infsci2560.models.Note.SchoolCode;
 import edu.infsci2560.repositories.NoteRepository;
 
 import org.slf4j.Logger;

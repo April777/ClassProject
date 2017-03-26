@@ -21,7 +21,7 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
     protected String name;
-    protected Long classId;
+    protected Long courseId;
     protected Long userId;
     protected String briefIntro;
     protected double rating;
@@ -30,17 +30,17 @@ public class Note {
     public Note(){
         this.id = Long.MAX_VALUE;
         this.name = null;
-        this.classId = 0L;
+        this.courseId = 0L;
         this.userId = 0L;
         this.briefIntro = null;
         this.rating = 0;
         this.fileDir = null;
     }
     
-    public Note(Long id, String name, Long classId, Long userId, String briefIntro, double rating, String fileDir){
+    public Note(Long id, String name, Long courseId, Long userId, String briefIntro, double rating, String fileDir){
         this.id = id;
         this.name = name;
-        this.classId = classId;
+        this.courseId = courseId;
         this.userId = userId;
         this.briefIntro = briefIntro;
         this.rating = rating;
@@ -49,7 +49,7 @@ public class Note {
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", class code = " + this.classId + ", userId=" + this.userId + ", rating=" + this.rating + ", brief introduction=" + this.briefIntro + "]\n";
+        return "[ id=" + this.id + ", name=" + this.name + ", class code = " + this.courseId + ", userId=" + this.userId + ", rating=" + this.rating + ", brief introduction=" + this.briefIntro + "]\n";
     }
     
     @Override
@@ -91,17 +91,17 @@ public class Note {
     }
     
     /**
-     * @return the class
+     * @return the course
      */
-    public Long getClassId(){
-        return this.classId;
+    public Long getCourseId(){
+        return this.courseId;
     }
     
     /**
-     * @param set the class
+     * @param set the course
      */
-    public void setClassId(Long classId){
-        this.classId = classId;
+    public void setCourseId(Long courseId){
+        this.courseId = courseId;
     }
     
         /**
