@@ -1,7 +1,8 @@
 package edu.infsci2560.services;
 
-import edu.infsci2560.models.Note;
-import edu.infsci2560.repositories.NoteRepository;
+import edu.infsci2560.models.Comment;
+import edu.infsci2560.repositories.CommentRepository;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,28 +21,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @author April
  */
+
 @RestController
-@RequestMapping("/public/api/notes")
-public class NoteService {
+@RequestMapping("/public/api/comments")
+public class CommentService {
     
     @Autowired
-    private NoteRepository repository;
+    private CommentRepository repository;
     
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Iterable<Note>> list() {
+    public ResponseEntity<Iterable<Comment>> list() {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.findAll(), headers, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Note> list(@PathVariable("id") Long id) {
+    public ResponseEntity<Comment> list(@PathVariable("id") Long id) {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.findOne(id), headers, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
-    public ResponseEntity<Note> create(@RequestBody Note note) {
+    public ResponseEntity<Comment> create(@RequestBody Comment comment) {
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(repository.save(note), headers, HttpStatus.OK);
+        return new ResponseEntity<>(repository.save(comment), headers, HttpStatus.OK);
     }
 }

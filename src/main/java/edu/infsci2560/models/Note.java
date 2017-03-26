@@ -16,22 +16,13 @@ public class Note {
     
     private static final long serialVersionUID = 1L;
     
-    public enum SchoolCode {
-        UNKNOWN,
-        INFSCI,
-        LING,
-        CMCS,
-        COE,
-        COEA,
-        COEE
-    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
     protected String name;
-    protected SchoolCode schoolCode;
-    protected Long classCode;
+    protected Long classId;
+    protected Long userId;
     protected String briefIntro;
     protected double rating;
     protected String fileDir;
@@ -39,18 +30,18 @@ public class Note {
     public Note(){
         this.id = Long.MAX_VALUE;
         this.name = null;
-        this.schoolCode = SchoolCode.UNKNOWN;
-        this.classCode = 0L;
+        this.classId = 0L;
+        this.userId = 0L;
         this.briefIntro = null;
         this.rating = 0;
         this.fileDir = null;
     }
     
-    public Note(Long id, String name, SchoolCode schoolCode, Long classCode, String briefIntro, double rating, String fileDir){
+    public Note(Long id, String name, Long classId, Long userId, String briefIntro, double rating, String fileDir){
         this.id = id;
         this.name = name;
-        this.schoolCode = schoolCode;
-        this.classCode = classCode;
+        this.classId = classId;
+        this.userId = userId;
         this.briefIntro = briefIntro;
         this.rating = rating;
         this.fileDir = fileDir;
@@ -58,7 +49,7 @@ public class Note {
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", class code = " + this.schoolCode + this.classCode + ", rating=" + this.rating + ", brief introduction=" + this.briefIntro + "]\n";
+        return "[ id=" + this.id + ", name=" + this.name + ", class code = " + this.classId + ", userId=" + this.userId + ", rating=" + this.rating + ", brief introduction=" + this.briefIntro + "]\n";
     }
     
     @Override
@@ -100,31 +91,31 @@ public class Note {
     }
     
     /**
-     * @return the school
-     */
-    public SchoolCode getSchoolCode(){
-        return this.schoolCode;
-    }
-    
-    /**
-     * @param set school code
-     */
-    public void setSchoolCode(SchoolCode schoolCode){
-        this.schoolCode = schoolCode;
-    }
-    
-    /**
      * @return the class
      */
-    public Long getClassCode(){
-        return this.classCode;
+    public Long getClassId(){
+        return this.classId;
     }
     
     /**
      * @param set the class
      */
-    public void setClassCode(Long classCode){
-        this.classCode = classCode;
+    public void setClassId(Long classId){
+        this.classId = classId;
+    }
+    
+        /**
+     * @return the class
+     */
+    public Long getUserId(){
+        return this.userId;
+    }
+    
+    /**
+     * @param set the class
+     */
+    public void setUserId(Long userId){
+        this.userId = userId;
     }
     
     /**
