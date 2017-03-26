@@ -1,6 +1,7 @@
 package edu.infsci2560.controllers;
 
 import edu.infsci2560.models.Course;
+import edu.infsci2560.models.Course.Schools;
 import edu.infsci2560.repositories.CourseRepository;
 
 import javax.validation.Valid;
