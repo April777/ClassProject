@@ -16,41 +16,25 @@ public class Course {
            
     private static final long serialVersionUID = 1L;
     
-    public enum Schools {
-        UNKNOWN,
-        ArtsAndSciences,
-        Business,
-        DentalMedicine,
-        Education,
-        Engineering,
-        InformationScience
-    }
-    
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
-    protected String name;
+    protected CoursePk coursePk;
     protected String semester;
-    protected Schools school;
+    
     
     public Course(){
-        this.id = Long.MAX_VALUE;
-        this.name = null;
+        this.coursePk = new CoursePk();
         this.semester = null;
-        this.school = Schools.UNKNOWN;
     }
     
-    public Course(Long id, String name, String semester, Schools school){
-        this.id = id;
-        this.name = name;
+    public Course(CoursePk coursePk, String semester){
+        this.coursePk = coursePk;
         this.semester = semester;
-        this.school = school;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", semester=" + this.semester + ", school=" + this.school +  "]\n";
+        return "[ id=" + this.coursePk.getNoteId() + ", name=" + this.coursePk.getName() + ", semester=" + this.semester + ", school=" + this.coursePk.getSchool() +  "]\n";
     }
     
     @Override
@@ -62,47 +46,19 @@ public class Course {
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(this);
     }
-    
+        
     /**
-     * @return the id
+     * @return the coursePk
      */
-    public Long getId(){
-        return id;
+    public CoursePk getCoursePk(){
+        return coursePk;
     }
     
     /**
-     * @param id the id to set
+     * @param set coursePk
      */
-    public void setId(Long id){
-        this.id = id;
-    }
-    
-    /**
-     * @return the name
-     */
-    public String getName(){
-        return name;
-    }
-    
-    /**
-     * @param title the name to set
-     */
-    public void setName(String name){
-        this.name = name;
-    }
-    
-    /**
-     * @return the school
-     */
-    public Schools getSchool(){
-        return school;
-    }
-    
-    /**
-     * @param set the school
-     */
-    public void setSchool(Schools school){
-        this.school = school;
+    public void setCoursePk(CoursePk coursePk){
+        this.coursePk = coursePk;
     }
     
     /**

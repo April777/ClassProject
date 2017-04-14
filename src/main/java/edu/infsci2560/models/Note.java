@@ -1,5 +1,7 @@
 package edu.infsci2560.models;
 
+import java.nio.file.Path;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,41 +17,33 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Note {
     
     private static final long serialVersionUID = 1L;
-    
-    
+        
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    protected NotePk notePk;
     protected String name;
-    protected Long courseId;
-    protected Long userId;
+    protected String[] comments;
     protected String briefIntro;
     protected double rating;
-    protected String fileDir;
+    protected String fileName;
     
-    public Note(){
-        this.id = Long.MAX_VALUE;
+    public Note(){ 
+        this.notePk = new NotePk();
         this.name = null;
-        this.courseId = 0L;
-        this.userId = 0L;
         this.briefIntro = null;
         this.rating = 0;
-        this.fileDir = null;
+        this.fileName = null;
     }
     
-    public Note(Long id, String name, Long courseId, Long userId, String briefIntro, double rating, String fileDir){
-        this.id = id;
+    public Note(NotePk notePk, String name, String briefIntro){
+        this.notePk = notePk;
         this.name = name;
-        this.courseId = courseId;
-        this.userId = userId;
         this.briefIntro = briefIntro;
-        this.rating = rating;
-        this.fileDir = fileDir;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", class code = " + this.courseId + ", userId=" + this.userId + ", rating=" + this.rating + ", brief introduction=" + this.briefIntro + "]\n";
+        return "[ id=" + this.notePk.getNoteId() + ", name=" + this.name + ", rating=" + this.rating + "]\n";
     }
     
     @Override
@@ -66,14 +60,14 @@ public class Note {
      * @return the id
      */
     public Long getId(){
-        return id;
+        return this.notePk.getNoteId();
     }
     
     /**
      * @param id the id to set
      */
     public void setId(Long id){
-        this.id = id;
+        this.notePk.setNoteId(id);
     }
     
     /**
@@ -91,34 +85,6 @@ public class Note {
     }
     
     /**
-     * @return the course
-     */
-    public Long getCourseId(){
-        return this.courseId;
-    }
-    
-    /**
-     * @param set the course
-     */
-    public void setCourseId(Long courseId){
-        this.courseId = courseId;
-    }
-    
-        /**
-     * @return the class
-     */
-    public Long getUserId(){
-        return this.userId;
-    }
-    
-    /**
-     * @param set the class
-     */
-    public void setUserId(Long userId){
-        this.userId = userId;
-    }
-    
-    /**
      * @return the rating
      */
     public double getRating(){
@@ -128,8 +94,15 @@ public class Note {
     /**
      * @param rating the rating to set
      */
-    public void setRating(double rating){
-        this.rating = rating;
+    public void setRating(Rating[] ratings){
+        double sum = 0;
+        int i;
+        for(i = 0; i < ratings.length; i++){
+            if(ratings[i].getRatingPk().getNoteId() == this.notePk.getNoteId()){
+                sum += ratings[i].getStars();
+            }
+        }
+        this.rating = sum/i;
     }
     
     /**
@@ -147,16 +120,16 @@ public class Note {
     }
     
     /**
-     * @param set note dir
+     * @param set note file
      */
-    public void setFileDir(String fileDir){
-        this.fileDir = fileDir;
+    public void setFileName(String fileName){
+        this.fileName = fileName;
     }
     
     /**
-     * @return the file folder
+     * @return the file
      */
-    public String getFileDir(){
-        return this.fileDir;
+    public String getFileName(){
+        return this.fileName;
     }
 }

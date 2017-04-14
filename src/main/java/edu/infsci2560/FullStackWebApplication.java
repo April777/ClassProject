@@ -1,15 +1,9 @@
 package edu.infsci2560;
 
-import edu.infsci2560.models.Note;
-import edu.infsci2560.repositories.NoteRepository;
-import edu.infsci2560.models.User;
+import edu.infsci2560.models.*;
 import edu.infsci2560.models.User.Identity;
-import edu.infsci2560.repositories.UserRepository;
-import edu.infsci2560.models.Comment;
-import edu.infsci2560.repositories.CommentRepository;
-import edu.infsci2560.models.Course;
-import edu.infsci2560.models.Course.Schools;
-import edu.infsci2560.repositories.CourseRepository;
+import edu.infsci2560.models.CoursePk.Schools;
+import edu.infsci2560.repositories.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan({"edu.infsci2560"})
+
 public class FullStackWebApplication {
 
     private static final Logger log = LoggerFactory.getLogger(FullStackWebApplication.class);
@@ -30,23 +25,32 @@ public class FullStackWebApplication {
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
 
         NoteRepository note = ctx.getBean(NoteRepository.class);
-        note.save(new Note(1L, "Note1 for web", 11L, 21L, "mvc section", 0.5, "dir1.txt"));
-        note.save(new Note(2L, "Note2 for web", 11L, 21L, "reposiitory section", 0.6, "die2.txt"));
-        note.save(new Note(3L, "Note3 for web", 11L, 21L, "git section", 0.5,"dir3.txt"));
+        //noteId, userId, name, briefIntro
+        note.save(new Note(new NotePk(1L, 1L), "HTML", "HTML"));
+        note.save(new Note(new NotePk(2L, 1L), "CSS", "CSS"));
+        note.save(new Note(new NotePk(3L, 1L), "CSS", "css on 4.3"));
         
         UserRepository user = ctx.getBean(UserRepository.class);
-        user.save(new User(21L, "April", "Qi", Identity.STUDENT, "student in IS", 2));
-        user.save(new User(22L, "John", "Smith", Identity.STUDENT, "Student in Arts", 1));
-        user.save(new User(23L, "Sam", "Potter", Identity.STUDENT, "Student in Medicine", 1));
-        
+        //userId, firstName, lastName, identity, profile
+        user.save(new User(1L, "Anping", "Qi", Identity.STUDENT, "Hi everyone~"));        
+        user.save(new User(2L, "John", "Smith", Identity.STUDENT, "Hi everyone~"));
+        user.save(new User(3L, "April", "Smith", Identity.STUDENT, "Hi everyone~"));
+         
         CommentRepository comment = ctx.getBean(CommentRepository.class);
-        comment.save(new Comment(31L, 1L, "Great"));
-        comment.save(new Comment(32L, 1L, "very useful"));
-        comment.save(new Comment(33L, 2L, "not useful at all"));
+        //noteId, userId, content
+        comment.save(new Comment(new CommentPk(1L,1L),"Great!"));
+        comment.save(new Comment(new CommentPk(1L,2L),"Very useful."));
         
         CourseRepository course = ctx.getBean(CourseRepository.class);
-        course.save(new Course(11L, "Web", "2017 Spring", Schools.InformationScience));
-        course.save(new Course(12L, "Data mining", "2017 Spring", Schools.InformationScience));
-        course.save(new Course(13L, "Social computing", "2017 Spring", Schools.InformationScience));
+        //noteId, courseId, name, school, semester
+        course.save(new Course(new CoursePk(1L,1L,"Web Technologies & Standards", Schools.InformationScience), "2017 Spring"));
+        course.save(new Course(new CoursePk(2L,1L,"Web Technologies & Standards", Schools.InformationScience), "2017 Spring"));
+        course.save(new Course(new CoursePk(3L,1L,"Web Technologies & Standards", Schools.InformationScience), "2017 Spring"));
+        
+        RatingRepository rating = ctx.getBean(RatingRepository.class);
+        //noteId, userId, rating
+        rating.save(new Rating(new RatingPk(1L, 1L),5));
+        rating.save(new Rating(new RatingPk(1L, 2L),4));
+        rating.save(new Rating(new RatingPk(1L, 3L),4));
     }
 }

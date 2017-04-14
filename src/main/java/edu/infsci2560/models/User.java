@@ -29,7 +29,6 @@ public class User {
     protected String lastName;
     protected Identity identity;
     protected String profile;
-    protected int friends;
     
     public User(){
         this.id = Long.MAX_VALUE;
@@ -37,21 +36,19 @@ public class User {
         this.lastName = null;
         this.identity = Identity.UNKNOWN;
         this.profile = null;
-        this.friends = 0;
     }
     
-    public User(Long id, String firstName, String lastName, Identity identity, String profile, int friends){
+    public User(Long id, String firstName, String lastName, Identity identity, String profile){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.identity = identity;
         this.profile = profile;
-        this.friends = friends;
     }
     
     @Override
     public String toString(){
-        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", identity=" + this.identity + ", profile=" + this.profile + ", friends=" + this.friends + "]\n";
+        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", identity=" + this.identity + ", profile=" + this.profile + "]\n";
     }
     
     @Override
@@ -132,19 +129,5 @@ public class User {
      */
     public void setProfile(String profile){
         this.profile = profile;
-    }
-    
-    /**
-     * @return the friends
-     */
-    public int getFriends(){
-        return friends;
-    }
-    
-    /**
-     * @param set # of friends
-     */
-    public void setFriends(int friends){
-        this.friends = friends;
     }
 }

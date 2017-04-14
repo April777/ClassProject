@@ -1,7 +1,6 @@
 package edu.infsci2560.services;
 
 import edu.infsci2560.models.Course;
-import edu.infsci2560.models.Course.Schools;
 import edu.infsci2560.repositories.CourseRepository;
 
 import java.util.ArrayList;
@@ -36,10 +35,10 @@ public class CourseService {
         return new ResponseEntity<>(repository.findAll(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Course> list(@PathVariable("id") Long id) {
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(repository.findOne(id), headers, HttpStatus.OK);
+    @RequestMapping(value = "/{courseId}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Course> list(@PathVariable("courseId") Long courseId) {
+        HttpHeaders headers = new HttpHeaders();        
+        return new ResponseEntity<>(repository.findOne(courseId), headers, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")

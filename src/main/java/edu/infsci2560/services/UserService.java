@@ -36,10 +36,10 @@ public class UserService {
         return new ResponseEntity<>(repository.findAll(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<User> list(@PathVariable("id") Long id) {
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<User> list(@PathVariable("userId") Long userId) {
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>(repository.findOne(id), headers, HttpStatus.OK);
+        return new ResponseEntity<>(repository.findOne(userId), headers, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes="application/json", produces = "application/json")
