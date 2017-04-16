@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>category</title>
 </head>
 <body>
+
+<p id="university">Click <a data-th-href="@{/universities}">here</a> to universities.</p>
+<p id="school">Click <a data-th-href="@{/schools}">here</a> to schools.</p>
+<p id="course">Click <a data-th-href="@{/courses}">here</a> to courses.</p>
+<p id="semester">Click <a data-th-href="@{/semesters}">here</a> to semesters.</p>
+<p id="note">Click <a data-th-href="@{/notes}">here</a> to notes.</p>
+<p id="user">Click <a data-th-href="@{/users}">here</a> to user setting.</p>
+
+<form data-th-action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" />
+</form>
 
 </body>
 </html>

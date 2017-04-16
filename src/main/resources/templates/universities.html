@@ -1,9 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-</head>
-<body>
+    <head>
+        <title>University</title>
+    </head>
+    <body>
+        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s universities' list</h1>
 
-</body>
+        <div>
+            <table style="border: 1px solid black">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>                
+                <tr data-th-each="university : ${universities}">
+                    <td data-th-text="${university.id}"></td>
+                    <td data-th-text="${university.name}"></td>
+                    <td data-th-text="${university.start}"></td>
+                    <td data-th-text="${university.end}"></td>
+                    <td><a data-th-href="@{/dvds/edit/{id}(id=${dvd.id})}">edit</a></td>
+                    <td>
+                        <form data-th-object="${university}" data-th-action="@{/universities/{id}(id=${university.id})}" data-th-method="delete">
+                            <input type="submit" value="delete" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <hr />
+        Add DVD<br />
+        <form data-th-action="@{/dvds/add}" name="addDvdForm" method="post">
+            Title: <input type="text" name="title" /><br />
+            Workout Type:<br />
+            <input type="radio" name="workoutType" value="Unknown" /> Unknown<br />
+            <input type="radio" name="workoutType" value="Strength" /> Strength<br />
+            <input type="radio" name="workoutType" value="Cardio" /> Cardio<br />
+            <input type="radio" name="workoutType" value="CrossTrain" /> CrossTrain<br />
+            <input type="submit" value="Add Workout"/>
+        </form>
+        
+        <hr />
+            <a data-th-href="@{/files}">Upload a File</a>
+        <hr />
+        
+        <form data-th-action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
 </html>
