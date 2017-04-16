@@ -1,7 +1,9 @@
 package edu.infsci2560.models;
 
-import java.nio.file.Path;
-
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,30 +22,41 @@ public class Note {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected NotePk notePk;
-    protected String name;
-    protected String[] comments;
-    protected String briefIntro;
-    protected double rating;
-    protected String fileName;
+    protected Long nid;
+    protected Long cid;
+    protected String lecture;
+    protected Date time;
+    protected String content;
+    protected int importance;
     
     public Note(){ 
-        this.notePk = new NotePk();
-        this.name = null;
-        this.briefIntro = null;
-        this.rating = 0;
-        this.fileName = null;
+        this.nid = 0L;
+        this.cid = 0L;
+        this.lecture = null;
+        this.time = new Date();
+        this.content = null;
+        this.importance = 0;
     }
     
-    public Note(NotePk notePk, String name, String briefIntro){
-        this.notePk = notePk;
-        this.name = name;
-        this.briefIntro = briefIntro;
+    public Note(Long nid, Long cid, String lecture, String time, String content, int importance){
+        this.nid = nid;
+        this.cid = cid;
+        this.lecture = lecture;
+        
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+        try {
+            this.time = df.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        this.content = content;
+        this.importance = importance;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.notePk.getNoteId() + ", name=" + this.name + ", rating=" + this.rating + "]\n";
+        return "[ id=" + this.nid + ", lecure=" + this.lecture + ", importance=" + this.importance + ", content" + this.content + "]\n";
     }
     
     @Override
@@ -59,77 +72,84 @@ public class Note {
     /**
      * @return the id
      */
-    public Long getId(){
-        return this.notePk.getNoteId();
+    public Long getNoteId(){
+        return this.nid;
     }
     
     /**
      * @param id the id to set
      */
-    public void setId(Long id){
-        this.notePk.setNoteId(id);
+    public void setNoteId(Long nid){
+        this.nid = nid;
+    }
+    
+        /**
+     * @return the course id
+     */
+    public Long getCourseId(){
+        return this.cid;
     }
     
     /**
-     * @return the name
+     * @param course id the course id to set
      */
-    public String getName(){
-        return name;
+    public void setCourseId(Long cid){
+        this.cid = cid;
     }
     
     /**
-     * @param title the name to set
+     * @return the lecture
      */
-    public void setName(String name){
-        this.name = name;
+    public String getlecture(){
+        return lecture;
     }
     
     /**
-     * @return the rating
+     * @param title the lecture to set
      */
-    public double getRating(){
-        return rating;
+    public void setLecture(String lecture){
+        this.lecture = lecture;
     }
     
     /**
-     * @param rating the rating to set
+     * @return the date
      */
-    public void setRating(Rating[] ratings){
-        double sum = 0;
-        int i;
-        for(i = 0; i < ratings.length; i++){
-            if(ratings[i].getRatingPk().getNoteId() == this.notePk.getNoteId()){
-                sum += ratings[i].getStars();
-            }
-        }
-        this.rating = sum/i;
+    public Date getTime(){
+        return time;
     }
     
     /**
-     * @return the briefIntro
+     * @param date the date to set
      */
-    public String getBriefIntro(){
-        return briefIntro;
+    public void setTime(Date time){
+        this.time = time;
     }
     
     /**
-     * @param briefIntro the briefIntro to set
+     * @return the content
      */
-    public void setBriefIntro(String briefIntro){
-        this.briefIntro = briefIntro;
+    public String getContent(){
+        return content;
     }
     
     /**
-     * @param set note file
+     * @param content the content to set
      */
-    public void setFileName(String fileName){
-        this.fileName = fileName;
+    public void setContent(String content){
+        this.content = content;
     }
     
     /**
-     * @return the file
+     * @param set note importance
      */
-    public String getFileName(){
-        return this.fileName;
+    public void setImportance(int importance){
+        this.importance = importance;
+    }
+    
+    /**
+     * @return the note importance
+     */
+    public int getImportance(){
+        return this.importance;
     }
 }

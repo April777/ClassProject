@@ -1,8 +1,8 @@
 package edu.infsci2560;
 
 import edu.infsci2560.models.*;
-import edu.infsci2560.models.User.Identity;
-import edu.infsci2560.models.CoursePk.Schools;
+import edu.infsci2560.models.User.Gender;
+import edu.infsci2560.models.Semester.Type;
 import edu.infsci2560.repositories.*;
 
 import org.slf4j.Logger;
@@ -24,33 +24,34 @@ public class FullStackWebApplication {
         //SpringApplication.run(FullStackWebApplication.class, args);
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
 
+        UniversityRepository univ = ctx.getBean(UniversityRepository.class);
+        //uid, name, start, end
+        univ.save(new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"));
+        
+        SchoolRepository school = ctx.getBean(SchoolRepository.class);
+        //sid, name, uid
+        school.save(new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018")));
+        
+        SemesterRepository semester = ctx.getBean(SemesterRepository.class);
+        //mid, type, year
+        semester.save(new Semester(1L, Type.Spring, "2017"));
+        semester.save(new Semester(2L, Type.Fall, "2016"));
+
+        CourseRepository course = ctx.getBean(CourseRepository.class);
+        //coursePk(cid,mid), name, preofessor, school
+        course.save(new Course(new CoursePk(1L,1L), "Web Technologies & Standards", " Brian Kolowitz", new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"))));
+        course.save(new Course(new CoursePk(2L,1L), "Data Mining", "Yuru Lin", new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"))));
+        course.save(new Course(new CoursePk(3L,2L), "Human Information Processing", "Hirtle", new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"))));
+
         NoteRepository note = ctx.getBean(NoteRepository.class);
-        //noteId, userId, name, briefIntro
-        note.save(new Note(new NotePk(1L, 1L), "HTML", "HTML"));
-        note.save(new Note(new NotePk(2L, 1L), "CSS", "CSS"));
-        note.save(new Note(new NotePk(3L, 1L), "CSS", "css on 4.3"));
+        //nid, cid, lecture, time, content, importance
+        note.save(new Note(1L, 1L, "HTML&CSS", "03/22/2017", "HTML&CSS", 2));
+        note.save(new Note(2L, 2L, "Feature selection", "03/21/2017", "FSelector package", 3));
+        note.save(new Note(3L, 1L, "JSON", "03/29/2017", "JSON", 4));
         
         UserRepository user = ctx.getBean(UserRepository.class);
-        //userId, firstName, lastName, identity, profile
-        user.save(new User(1L, "Anping", "Qi", Identity.STUDENT, "Hi everyone~"));        
-        user.save(new User(2L, "John", "Smith", Identity.STUDENT, "Hi everyone~"));
-        user.save(new User(3L, "April", "Smith", Identity.STUDENT, "Hi everyone~"));
-         
-        CommentRepository comment = ctx.getBean(CommentRepository.class);
-        //noteId, userId, content
-        comment.save(new Comment(new CommentPk(1L,1L),"Great!"));
-        comment.save(new Comment(new CommentPk(1L,2L),"Very useful."));
-        
-        CourseRepository course = ctx.getBean(CourseRepository.class);
-        //noteId, courseId, name, school, semester
-        course.save(new Course(new CoursePk(1L,1L,"Web Technologies & Standards", Schools.InformationScience), "2017 Spring"));
-        course.save(new Course(new CoursePk(2L,1L,"Web Technologies & Standards", Schools.InformationScience), "2017 Spring"));
-        course.save(new Course(new CoursePk(3L,1L,"Web Technologies & Standards", Schools.InformationScience), "2017 Spring"));
-        
-        RatingRepository rating = ctx.getBean(RatingRepository.class);
-        //noteId, userId, rating
-        rating.save(new Rating(new RatingPk(1L, 1L),5));
-        rating.save(new Rating(new RatingPk(1L, 2L),4));
-        rating.save(new Rating(new RatingPk(1L, 3L),4));
+        //userId, firstName, lastName, gender, profile
+        user.save(new User(1L, "Anping", "Qi", Gender.Female, "Hi everyone~"));  
+
     }
 }

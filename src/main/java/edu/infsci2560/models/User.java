@@ -16,10 +16,10 @@ public class User {
         
     private static final long serialVersionUID = 1L;
     
-    public enum Identity {
+    public enum Gender {
         UNKNOWN,
-        STUDENT,
-        PROFESSOR
+        Female,
+        Male
     }
     
     @Id
@@ -27,28 +27,28 @@ public class User {
     protected Long id;
     protected String firstName;
     protected String lastName;
-    protected Identity identity;
+    protected Gender gender;
     protected String profile;
     
     public User(){
         this.id = Long.MAX_VALUE;
         this.firstName = null;
         this.lastName = null;
-        this.identity = Identity.UNKNOWN;
+        this.gender = gender.UNKNOWN;
         this.profile = null;
     }
     
-    public User(Long id, String firstName, String lastName, Identity identity, String profile){
+    public User(Long id, String firstName, String lastName, Gender gender, String profile){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.identity = identity;
+        this.gender = gender;
         this.profile = profile;
     }
     
     @Override
     public String toString(){
-        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", identity=" + this.identity + ", profile=" + this.profile + "]\n";
+        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", gender=" + this.gender + ", profile=" + this.profile + "]\n";
     }
     
     @Override
@@ -104,17 +104,17 @@ public class User {
     }
     
     /**
-     * @return the identity
+     * @return the gender
      */
-    public Identity getIdentity(){
-        return this.identity;
+    public Gender getGender(){
+        return this.gender;
     }
     
     /**
-     * @param set identity
+     * @param set gender
      */
-    public void setIdentity(Identity identity){
-        this.identity = identity;
+    public void setGender(Gender gender){
+        this.gender = gender;
     }
     
     /**

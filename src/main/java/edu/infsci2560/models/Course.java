@@ -19,22 +19,28 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected CoursePk coursePk;
-    protected String semester;
+    protected String name;
+    protected String professor;
+    protected School school;
     
     
     public Course(){
         this.coursePk = new CoursePk();
-        this.semester = null;
+        this.name = null;
+        this.professor = null;
+        this.school = new School();
     }
     
-    public Course(CoursePk coursePk, String semester){
+    public Course(CoursePk coursePk, String name, String professor, School school){
         this.coursePk = coursePk;
-        this.semester = semester;
+        this.name = name;
+        this.professor = professor;
+        this.school = school;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.coursePk.getNoteId() + ", name=" + this.coursePk.getName() + ", semester=" + this.semester + ", school=" + this.coursePk.getSchool() +  "]\n";
+        return "[ id=" + this.coursePk.getCourseId() + ", name=" + this.name + ", professor=" + this.professor + ", school=" + this.school.getName() +  "]\n";
     }
     
     @Override
@@ -48,30 +54,72 @@ public class Course {
     }
         
     /**
-     * @return the coursePk
+     * @return the course id
      */
-    public CoursePk getCoursePk(){
-        return coursePk;
+    public Long getId(){
+        return coursePk.getCourseId();
     }
     
     /**
-     * @param set coursePk
+     * @param set course id
      */
-    public void setCoursePk(CoursePk coursePk){
-        this.coursePk = coursePk;
+    public void setId(Long cid){
+        this.coursePk.setCourseId(cid);
     }
     
     /**
-     * @return the semester
+     * @return the course semester
      */
-    public String getSemester(){
-        return semester;
+    public Long getSemester(){
+        return coursePk.getSemesterId();
     }
     
     /**
-     * @param set semester
+     * @param set course semester
      */
-    public void setSemester(String semester){
-        this.semester = semester;
+    public void setSemesterId(Long mid){
+        this.coursePk.setSemesterId(mid);
+    }
+    
+    /**
+     * @return the name
+     */
+    public String getName(){
+        return name;
+    }
+    
+    /**
+     * @param set name
+     */
+    public void setName(String name){
+        this.name = name;
+    }
+     
+    /**
+     * @return the professor
+     */
+    public String getProfessor(){
+        return professor;
+    }
+    
+    /**
+     * @param set professor
+     */
+    public void setProfessor(String professor){
+        this.professor = professor;
+    }
+     
+    /**
+     * @return the school
+     */
+    public String getSchool(){
+        return school.getName();
+    }
+    
+    /**
+     * @param set school
+     */
+    public void setSchool(School school){
+        this.school = school;
     }
 }
