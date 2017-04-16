@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Edit University</title>
+    </head>
+    <body>
+        Edit University<br />
+        <form
+            data-th-action="@{/universities/edit/{id}(id=${university.id})}" 
+            data-th-object="${university}" 
+            data-th-method="put" 
+            role="form">
+            
+            Name: <input type="text" name="name" data-th-value="${university.name}" /><br />
+            Start(mm/dd/yyyy): <input type="text" name="start" data-th-value="${university.start}" /><br />
+            End(mm/dd/yyyy): <input type="text" name="end" data-th-value="${university.end}" /><br />
+            
+            <input type="submit" value="Update University"/><br />
+        </form>
+       
+    </body>
+</html>
