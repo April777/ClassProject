@@ -23,6 +23,7 @@ public class School {
     protected Long sid;
     protected String name;
     protected University univ;
+    protected String uName;
     
     public School(){ 
         this.sid = 0L;
@@ -33,12 +34,18 @@ public class School {
     public School(Long sid, String name, University univ){
         this.sid = sid;
         this.name = name;
-        this.univ = univ;
+        this.uName = univ.getName();
+    }
+    
+    public School(Long sid, String name, String uName){
+        this.sid = sid;
+        this.name = name;
+        this.uName = uName;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.sid + ", name=" + this.name + ", university" + this.univ.getName() + "]\n";
+        return "[ id=" + this.sid + ", name=" + this.name + ", university=" + this.uName + "]\n";
     }
     
     @Override
@@ -82,8 +89,16 @@ public class School {
     /**
      * @return the University
      */
-    public University getUniversity(){
-        return univ;
+    public String getUniversity(){
+        return uName;
+    }
+    
+    
+    /**
+     * @param uName
+     */    
+    public void setUName(String uName){
+        this.uName = uName;
     }
     
     /**
@@ -91,5 +106,6 @@ public class School {
      */
     public void setUniversity(University univ){
        this.univ = univ;
+       this.uName = univ.getName();
     }
 }

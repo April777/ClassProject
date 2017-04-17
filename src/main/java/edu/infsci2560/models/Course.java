@@ -21,26 +21,26 @@ public class Course {
     protected CoursePk coursePk;
     protected String name;
     protected String professor;
-    protected School school;
+    protected Long sid;
     
     
     public Course(){
         this.coursePk = new CoursePk();
         this.name = null;
         this.professor = null;
-        this.school = new School();
+        this.sid = 0L;
     }
     
-    public Course(CoursePk coursePk, String name, String professor, School school){
-        this.coursePk = coursePk;
+    public Course(Long cid, Long mid, String name, String professor, Long sid){
+        this.coursePk = new CoursePk(cid, mid);
         this.name = name;
         this.professor = professor;
-        this.school = school;
+        this.sid = sid;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.coursePk.getCourseId() + ", name=" + this.name + ", professor=" + this.professor + ", school=" + this.school.getName() +  "]\n";
+        return "[ id=" + this.coursePk.getCourseId() + ", name=" + this.name + ", professor=" + this.professor + ", school_ID=" + this.sid +  "]\n";
     }
     
     @Override
@@ -112,14 +112,14 @@ public class Course {
     /**
      * @return the school
      */
-    public String getSchool(){
-        return school.getName();
+    public Long getSchool(){
+        return sid;
     }
     
     /**
      * @param set school
      */
-    public void setSchool(School school){
-        this.school = school;
+    public void setSchool(Long sid){
+        this.sid = sid;
     }
 }

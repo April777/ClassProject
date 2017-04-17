@@ -17,10 +17,10 @@ and open the template in the editor.
             role="form">
             
             Name: <input type="text" name="name" data-th-value="${school.name}" /><br />
-            University: 
+            University:      
             <table style="border: 1px solid black">
                 <tr data-th-each="university : ${universities}">
-                    <td><input type="radio" name="univ" value="${university.name}" /></td>
+                    <td><input type="radio" name="uName" value="${university.name}"></td>
                     <td data-th-text="${university.name}"></td>
                 </tr>
             </table>

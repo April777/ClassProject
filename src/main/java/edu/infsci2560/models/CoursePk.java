@@ -35,10 +35,10 @@ public class CoursePk implements Serializable {
         if (getClass() != obj.getClass())
                 return false;
         CoursePk other = (CoursePk) obj;
-        if ( !Objects.equals(other.cid, cid) )
+        if ( !Objects.equals(other.cid, mid) )
             return false;
 
-        return Objects.equals(other.getCourseId(), getCourseId());
+        return Objects.equals(other.getCourseId(), getSemesterId());
 
     }
 

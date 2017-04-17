@@ -39,9 +39,9 @@ public class FullStackWebApplication {
 
         CourseRepository course = ctx.getBean(CourseRepository.class);
         //coursePk(cid,mid), name, preofessor, school
-        course.save(new Course(new CoursePk(1L,1L), "Web Technologies & Standards", " Brian Kolowitz", new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"))));
-        course.save(new Course(new CoursePk(2L,1L), "Data Mining", "Yuru Lin", new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"))));
-        course.save(new Course(new CoursePk(3L,2L), "Human Information Processing", "Hirtle", new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"))));
+        course.save(new Course(1L,1L, "Web Technologies & Standards", " Brian Kolowitz", 1L));
+        course.save(new Course(2L,1L, "Data Mining", "Yuru Lin", 1L));
+        course.save(new Course(3L,2L, "Human Information Processing", "Hirtle", 1L));
 
         NoteRepository note = ctx.getBean(NoteRepository.class);
         //nid, cid, lecture, time, content, importance
