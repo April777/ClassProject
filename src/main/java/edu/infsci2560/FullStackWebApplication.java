@@ -30,7 +30,7 @@ public class FullStackWebApplication {
         
         SchoolRepository school = ctx.getBean(SchoolRepository.class);
         //sid, name, uid
-        school.save(new School(1L, "School of Information Science", new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018")));
+        school.save(new School(1L, "School of Information Science", "University of Pittsburgh"));
         
         SemesterRepository semester = ctx.getBean(SemesterRepository.class);
         //mid, type, year

@@ -16,8 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UniversityController {
     @Autowired
-    private UniversityRepository repository;
-    
+    private UniversityRepository repository;    
     
     @RequestMapping(value = "universities", method = RequestMethod.GET)
     public ModelAndView index() {        

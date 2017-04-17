@@ -1,7 +1,5 @@
 package edu.infsci2560.models;
 
-import edu.infsci2560.models.University;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,19 +20,12 @@ public class School {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long sid;
     protected String name;
-    protected University univ;
     protected String uName;
     
     public School(){ 
         this.sid = 0L;
         this.name = null;
-        this.univ = new University();
-    }
-    
-    public School(Long sid, String name, University univ){
-        this.sid = sid;
-        this.name = name;
-        this.uName = univ.getName();
+        this.uName = null;
     }
     
     public School(Long sid, String name, String uName){
@@ -97,15 +88,7 @@ public class School {
     /**
      * @param uName
      */    
-    public void setUName(String uName){
+    public void setUniversity(String uName){
         this.uName = uName;
-    }
-    
-    /**
-     * @param university
-     */
-    public void setUniversity(University univ){
-       this.univ = univ;
-       this.uName = univ.getName();
     }
 }
