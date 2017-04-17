@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-</head>
-<body>
+    <head>
+        <title>School</title>
+    </head>
+    <body>
+        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s schools' list</h1>
 
-</body>
+        <div>
+            <table style="border: 1px solid black">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Universitye</th>
+                </tr>                
+                <tr data-th-each="school : ${schools}">
+                    <td data-th-text="${school.sid}"></td>
+                    <td data-th-text="${school.name}"></td>
+                    <td data-th-text="${school.univ.getName()}"></td>
+                    <td><a data-th-href="@{/schools/edit/{id}(id=${school.id})}">edit</a></td>
+                    <td>
+                        <form data-th-object="${school}" data-th-action="@{/schoo/{id}(id=${school.id})}" data-th-method="delete">
+                            <input type="submit" value="delete" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <hr />
+        Add School<br />
+        <form data-th-action="@{/schools/add}" name="addSchoolForm" method="post">
+            Name: <input type="text" name="name" /><br />
+            University: 
+            
+            
+            <table style="border: 1px solid black">
+                <tr data-th-each="university : ${universities}">
+                    <td><input type="radio" name="university" value="${university.name}">
+                    <td data-th-text="${university.name}"></td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Add School"/>
+        </form>
+        <br />
+        <form data-th-action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
 </html>
