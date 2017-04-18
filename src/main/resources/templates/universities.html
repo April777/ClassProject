@@ -21,7 +21,7 @@
                     <td data-th-text="${university.end}"></td>
                     <td><a data-th-href="@{/universities/edit/{id}(id=${university.id})}">edit</a></td>
                     <td>
-                        <form data-th-object="${universities}" data-th-action="@{/universities/{id}(id=${university.id})}" data-th-method="delete">
+                        <form data-th-object="${universitiy}" data-th-action="@{/universities/delete}" data-th-method="delete">
                             <input type="submit" value="delete" />
                         </form>
                     </td>
