@@ -18,25 +18,25 @@ public class School {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long sid;
+    protected Long id;
     protected String name;
     protected String uName;
     
     public School(){ 
-        this.sid = 0L;
+        this.id = 0L;
         this.name = null;
         this.uName = null;
     }
     
-    public School(Long sid, String name, String uName){
-        this.sid = sid;
+    public School(Long id, String name, String uName){
+        this.id = id;
         this.name = name;
         this.uName = uName;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.sid + ", name=" + this.name + ", university=" + this.uName + "]\n";
+        return "[ id=" + this.id + ", name=" + this.name + ", university=" + this.uName + "]\n";
     }
     
     @Override
@@ -53,14 +53,14 @@ public class School {
      * @return the id
      */
     public Long getId(){
-        return this.sid;
+        return this.id;
     }
     
     /**
      * @param id the id to set
      */
-    public void setId(Long sid){
-        this.sid = sid;
+    public void setId(Long id){
+        this.id = id;
     }
     
     /**

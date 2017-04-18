@@ -22,25 +22,25 @@ public class Note {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long nid;
-    protected Long cid;
+    protected Long id;
+    protected String cName;
     protected String lecture;
     protected Date time;
     protected String content;
     protected int importance;
     
     public Note(){ 
-        this.nid = 0L;
-        this.cid = 0L;
+        this.id = 0L;
+        this.cName = null;
         this.lecture = null;
         this.time = new Date();
         this.content = null;
         this.importance = 0;
     }
     
-    public Note(Long nid, Long cid, String lecture, String time, String content, int importance){
-        this.nid = nid;
-        this.cid = cid;
+    public Note(Long id, String cName, String lecture, String time, String content, int importance){
+        this.id = id;
+        this.cName = cName;
         this.lecture = lecture;
         
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
@@ -56,7 +56,7 @@ public class Note {
     
     @Override
     public String toString(){
-        return "[ id=" + this.nid + ", lecure=" + this.lecture + ", importance=" + this.importance + ", content" + this.content + "]\n";
+        return "[ id=" + this.id + ", lecure=" + this.lecture + ", importance=" + this.importance + ", content" + this.content + "]\n";
     }
     
     @Override
@@ -73,28 +73,28 @@ public class Note {
      * @return the id
      */
     public Long getNoteId(){
-        return this.nid;
+        return this.id;
     }
     
     /**
      * @param id the id to set
      */
-    public void setNoteId(Long nid){
-        this.nid = nid;
+    public void setNoteId(Long id){
+        this.id = id;
     }
     
         /**
      * @return the course id
      */
-    public Long getCourseId(){
-        return this.cid;
+    public String getCourse(){
+        return this.cName;
     }
     
     /**
      * @param course id the course id to set
      */
-    public void setCourseId(Long cid){
-        this.cid = cid;
+    public void setCourse(String cName){
+        this.cName = cName;
     }
     
     /**

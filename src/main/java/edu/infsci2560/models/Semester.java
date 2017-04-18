@@ -24,25 +24,25 @@ public class Semester {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long mid;
+    protected Long id;
     protected Type type;
     protected String year;
     
     public Semester(){ 
-        this.mid = 0L;
+        this.id = 0L;
         this.type = Type.Fall;
         this.year = null;
     }
     
-    public Semester(Long mid, Type type, String year){
-        this.mid = mid;
+    public Semester(Long id, Type type, String year){
+        this.id = id;
         this.type = type;
         this.year = year;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.mid + ", year=" + this.year + ", type=" + this.type + "]\n";
+        return "[ id=" + this.id + ", year=" + this.year + ", type=" + this.type + "]\n";
     }
     
     @Override
@@ -59,14 +59,14 @@ public class Semester {
      * @return the id
      */
     public Long getId(){
-        return this.mid;
+        return this.id;
     }
     
     /**
      * @param id the id to set
      */
-    public void setId(Long mid){
-        this.mid = mid;
+    public void setId(Long id){
+        this.id = id;
     }
     
     /**

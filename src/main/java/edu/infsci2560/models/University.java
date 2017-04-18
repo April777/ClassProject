@@ -22,20 +22,20 @@ public class University {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long uid;
+    protected Long id;
     protected String name;
     protected Date start;
     protected Date end;
     
     public University(){ 
-        this.uid = 0L;
+        this.id = 0L;
         this.name = null;
         this.start = new Date();
         this.end = new Date();
     }
     
-    public University(Long uid, String name, String start, String end){
-        this.uid = uid;
+    public University(Long id, String name, String start, String end){
+        this.id = id;
         this.name = name;
         
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
@@ -50,7 +50,7 @@ public class University {
     @Override
     public String toString(){
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-        return "[ id=" + this.uid + ", name=" + this.name + ", start=" + df.format(this.start) + ", end=" + df.format(this.end) + "]\n";
+        return "[ id=" + this.id + ", name=" + this.name + ", start=" + df.format(this.start) + ", end=" + df.format(this.end) + "]\n";
     }
     
     @Override
@@ -67,14 +67,14 @@ public class University {
      * @return the id
      */
     public Long getId(){
-        return this.uid;
+        return this.id;
     }
     
     /**
      * @param id the id to set
      */
-    public void setId(Long uid){
-        this.uid = uid;
+    public void setId(Long id){
+        this.id = id;
     }
     
     /**

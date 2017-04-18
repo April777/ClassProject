@@ -44,10 +44,10 @@ public class FullStackWebApplication {
         course.save(new Course(3L,"2016 Fall", "Human Information Processing", "Hirtle", "School of Information Science"));
 
         NoteRepository note = ctx.getBean(NoteRepository.class);
-        //nid, cid, lecture, time, content, importance
-        note.save(new Note(1L, 1L, "HTML&CSS", "03/22/2017", "HTML&CSS", 2));
-        note.save(new Note(2L, 2L, "Feature selection", "03/21/2017", "FSelector package", 3));
-        note.save(new Note(3L, 1L, "JSON", "03/29/2017", "JSON", 4));
+        //nid, cName, lecture, time, content, importance
+        note.save(new Note(1L, "Web Technologies & Standards", "HTML&CSS", "03/22/2017", "HTML&CSS", 2));
+        note.save(new Note(2L, "Data Mining", "Feature selection", "03/21/2017", "FSelector package", 3));
+        note.save(new Note(3L, "Web Technologies & Standards", "JSON", "03/29/2017", "JSON", 4));
         
         UserRepository user = ctx.getBean(UserRepository.class);
         //userId, firstName, lastName, gender, profile

@@ -18,7 +18,7 @@ public class Course {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long cid;
+    protected Long id;
     protected String semester;
     protected String name;
     protected String professor;
@@ -26,15 +26,15 @@ public class Course {
     
     
     public Course(){
-        this.cid = 0L;
+        this.id = 0L;
         this.semester = null;
         this.name = null;
         this.professor = null;
         this.sName = null;
     }
     
-    public Course(Long cid, String semester, String name, String professor, String sName){
-        this.cid = cid;
+    public Course(Long id, String semester, String name, String professor, String sName){
+        this.id = id;
         this.semester = semester;
         this.name = name;
         this.professor = professor;
@@ -43,7 +43,7 @@ public class Course {
     
     @Override
     public String toString(){
-        return "[ id=" + this.cid + ", name=" + this.name + ", professor=" + this.professor + ", school=" + this.sName + ", semester=" + this.semester + "]\n";
+        return "[ id=" + this.id + ", name=" + this.name + ", professor=" + this.professor + ", school=" + this.sName + ", semester=" + this.semester + "]\n";
     }
     
     @Override
@@ -60,14 +60,14 @@ public class Course {
      * @return the course id
      */
     public Long getId(){
-        return cid;
+        return id;
     }
     
     /**
      * @param set course id
      */
-    public void setId(Long cid){
-        this.cid = cid;
+    public void setId(Long id){
+        this.id = id;
     }
     
     /**
