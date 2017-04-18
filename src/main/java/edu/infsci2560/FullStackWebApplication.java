@@ -24,9 +24,9 @@ public class FullStackWebApplication {
         //SpringApplication.run(FullStackWebApplication.class, args);
         ApplicationContext ctx = SpringApplication.run(FullStackWebApplication.class, args);
 
-        UniversityRepository univ = ctx.getBean(UniversityRepository.class);
+        UniversityRepository university = ctx.getBean(UniversityRepository.class);
         //uid, name, start, end
-        univ.save(new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"));
+        university.save(new University(1L, "University of Pittsburgh", "09/01/2016", "04/30/2018"));
         
         SchoolRepository school = ctx.getBean(SchoolRepository.class);
         //sid, name, uid
