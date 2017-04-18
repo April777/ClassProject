@@ -114,15 +114,21 @@ public class Note {
     /**
      * @return the date
      */
-    public Date getTime(){
-        return time;
+    public String getTime(){
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+        return df.format(time);
     }
     
     /**
      * @param date the date to set
      */
-    public void setTime(Date time){
-        this.time = time;
+    public void setTime(String time){
+         DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+        try {
+            this.time = df.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
     
     /**

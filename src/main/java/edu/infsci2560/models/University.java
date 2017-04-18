@@ -94,28 +94,40 @@ public class University {
     /**
      * @return the start date
      */
-    public Date getStart(){
-        return start;
+    public String getStart(){
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");         
+        return df.format(start);
     }
     
     /**
      * @param rating the start date to set
      */
-    public void setStart(Date start){
-       this.start = start;
+    public void setStart(String start){
+       DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+        try {
+            this.start = df.parse(start);            
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
     
     /**
      * @return the end date
      */
-    public Date getEnd(){
-        return end;
+    public String getEnd(){
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");         
+        return df.format(end);
     }
     
     /**
      * @param end the end to set
      */
-    public void setEnd(Date end){
-        this.end = end;
+    public void setEnd(String end){
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+        try {
+            this.end = df.parse(end);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

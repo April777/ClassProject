@@ -82,8 +82,7 @@ public class School {
      */
     public String getUniversity(){
         return uName;
-    }
-    
+    }    
     
     /**
      * @param uName

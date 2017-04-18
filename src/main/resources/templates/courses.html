@@ -1,30 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Courses</title>
+    <title></title>
 </head>
 <body>
 
-    <h1>Course list</h1>
-    <div>
-        <table align="center" style="border: 1px solid black">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>School</th>
-                <th>Semester</th>
-            </tr>                
-            <tr data-th-each="course : ${courses}">
-                    <td data-th-text="${course.id}"></td>
-                    <td data-th-text="${course.name}"></td>
-                    <td data-th-text="${course.school}"></td>
-                    <td data-th-text="${course.semester}"></td>
-             </tr>
-        </table>
-    </div>
-    
-    <form data-th-action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" />
-    </form>
 </body>
 </html>

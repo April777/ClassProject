@@ -1,55 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Home</title>
+    <title></title>
 </head>
 <body>
 
-    <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s notes</h1>
-
-    <div>
-        <table aling="center" style="border: 1px solid black">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Class Code</th>
-                <th>Brief Introduction</th>
-                <th>Rating</th>
-                <th>Download</th>
-            </tr>                
-            <tr data-th-each="note : ${notes}">
-                    <td data-th-text="${note.id}"></td>
-                    <td data-th-text="${note.name}"></td>
-                    <td data-th-text="${note.courseId}"></td>
-                    <td data-th-text="${note.briefIntro}"></td>
-                    <td data-th-text="${note.rating}"></td>
-                    <a href="${note.fileDir}" download="noteFile">
-                        <td data-th-text="${note.fileDir}"></td>
-                    </a>
-             </tr>
-        </table>
-    </div>
-    
-    <hr/>
-    Upload Note<br/>
-   
-    <form data-th-action="@{/notes/add}" name="addNoteForm" method="post">
-        Title:<input type="text" name="name" /><br />       
-        Class Code:<input type="text" name="courseId" /><br />
-        User Id:<input type="text" name="userId" /><br />
-        Brief Introduction:<br />
-        <textarea rows="10" cols="30" name="briefIntro"></textarea><br />
-        Upload:<br />
-        <input type="file" multiple="multiple" name="fileDir" /><br />
-        <input type="submit" value="Add Note" />
-    </form>
-
-    <hr />
-            <a data-th-href="@{/files}">Upload a File</a>
-        <hr />
-    <hr />
-    <form data-th-action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" />
-    </form>
 </body>
 </html>
