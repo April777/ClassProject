@@ -29,8 +29,8 @@ public class UniversityController {
     }
     
     @RequestMapping(value = "universities/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView create(@ModelAttribute @Valid University semester, BindingResult result) {
-        repository.save(semester);
+    public ModelAndView create(@ModelAttribute @Valid University university, BindingResult result) {
+        repository.save(university);
         return new ModelAndView("universities", "universities", repository.findAll());
     }
     
