@@ -1,7 +1,13 @@
 package edu.infsci2560.models;
 
-import javax.persistence.EmbeddedId;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -13,31 +19,35 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Course {
            
     private static final long serialVersionUID = 1L;
-    
-    @EmbeddedId
-    protected CoursePk coursePk;
+        
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long cid;
+    protected String semester;
     protected String name;
     protected String professor;
-    protected Long sid;
+    protected String sName;
     
     
     public Course(){
-        this.coursePk = new CoursePk();
+        this.cid = 0L;
+        this.semester = null;
         this.name = null;
         this.professor = null;
-        this.sid = 0L;
+        this.sName = null;
     }
     
-    public Course(Long cid, Long mid, String name, String professor, Long sid){
-        this.coursePk = new CoursePk(cid, mid);
+    public Course(Long cid, String semester, String name, String professor, String sName){
+        this.cid = cid;
+        this.semester = semester;
         this.name = name;
         this.professor = professor;
-        this.sid = sid;
+        this.sName = sName;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.coursePk.getCourseId() + ", name=" + this.name + ", professor=" + this.professor + ", school_ID=" + this.sid +  "]\n";
+        return "[ id=" + this.cid + ", name=" + this.name + ", professor=" + this.professor + ", school=" + this.sName + ", semester=" + this.semester + "]\n";
     }
     
     @Override
@@ -54,28 +64,28 @@ public class Course {
      * @return the course id
      */
     public Long getId(){
-        return coursePk.getCourseId();
+        return cid;
     }
     
     /**
      * @param set course id
      */
     public void setId(Long cid){
-        this.coursePk.setCourseId(cid);
+        this.cid = cid;
     }
     
     /**
      * @return the course semester
      */
-    public Long getSemester(){
-        return coursePk.getSemesterId();
+    public String getSemester(){
+        return semester;
     }
     
     /**
      * @param set course semester
      */
-    public void setSemesterId(Long mid){
-        this.coursePk.setSemesterId(mid);
+    public void setSemester(String semester){
+        this.semester = semester;
     }
     
     /**
@@ -109,14 +119,14 @@ public class Course {
     /**
      * @return the school
      */
-    public Long getSchool(){
-        return sid;
+    public String getSchool(){
+        return sName;
     }
     
     /**
      * @param set school
      */
-    public void setSchool(Long sid){
-        this.sid = sid;
+    public void setSchool(String sName){
+        this.sName = sName;
     }
 }

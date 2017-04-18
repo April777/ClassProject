@@ -96,4 +96,11 @@ public class Semester {
     public void setYear(String year){
        this.year = year;
     }
+    
+    /**
+     * @return the semester
+     */
+    public String getSemester(){
+        return this.year + " " + this.type;
+    }
 }
