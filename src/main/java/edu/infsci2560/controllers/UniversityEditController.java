@@ -23,13 +23,13 @@ public class UniversityEditController {
     
     @RequestMapping(value = "universities/edit/{id}", method = RequestMethod.GET)
     public ModelAndView index(@PathVariable Long id) { 
-        University univ = repository.findOne(id);
-        return new ModelAndView("universityEdit", "university", univ);
+        University university = repository.findOne(id);
+        return new ModelAndView("universityEdit", "university", university);
     }
     
     @RequestMapping(value = "universities/edit/{id}", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public String update( @Valid University univ, BindingResult result) {
-        repository.save(univ);
+    public String update( @Valid University university, BindingResult result) {
+        repository.save(university);
         return "redirect:/universities";
     }        
 }
