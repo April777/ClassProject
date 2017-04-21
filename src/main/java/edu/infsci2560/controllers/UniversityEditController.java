@@ -23,8 +23,11 @@ public class UniversityEditController {
     
     @RequestMapping(value = "universities/edit/{id}", method = RequestMethod.GET)
     public ModelAndView index(@PathVariable Long id) { 
+        ModelAndView mv = new ModelAndView("universityEdit");
         University university = repository.findOne(id);
-        return new ModelAndView("universityEdit", "university", university);
+        mv.addObject("university", university);
+        //University university = repository.findOne(id);
+        return mv;
     }
     
     @RequestMapping(value = "universities/edit/{id}", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
