@@ -1,9 +1,5 @@
 package edu.infsci2560.models;
 
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,33 +20,26 @@ public class University {
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
     protected String name;
-    protected Date start;
-    protected Date end;
+    protected String start;
+    protected String end;
     
     public University(){ 
         this.id = 0L;
         this.name = null;
-        this.start = new Date();
-        this.end = new Date();
+        this.start = null;
+        this.end = null;
     }
     
     public University(Long id, String name, String start, String end){
         this.id = id;
         this.name = name;
-        
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-        try {
-            this.start = df.parse(start);
-            this.end = df.parse(end);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.start = start;
+        this.end = end;
     }
     
     @Override
     public String toString(){
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-        return "[ id=" + this.id + ", name=" + this.name + ", start=" + df.format(this.start) + ", end=" + df.format(this.end) + "]\n";
+        return "[ id=" + this.id + ", name=" + this.name + ", start=" + this.start + ", end=" + this.end + "]\n";
     }
     
     @Override
@@ -94,40 +83,28 @@ public class University {
     /**
      * @return the start date
      */
-    public String getStart(){
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");         
-        return df.format(start);
+    public String getStart(){      
+        return start;
     }
     
     /**
      * @param rating the start date to set
      */
     public void setStart(String start){
-       DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-        try {
-            this.start = df.parse(start);            
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+       this.start = start;  
     }
     
     /**
      * @return the end date
      */
-    public String getEnd(){
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");         
-        return df.format(end);
+    public String getEnd(){    
+        return end;
     }
     
     /**
      * @param end the end to set
      */
     public void setEnd(String end){
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-        try {
-            this.end = df.parse(end);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.end = end;
     }
 }
