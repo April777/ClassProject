@@ -4,8 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import java.util.List;
 
 /**
  * @author April
@@ -14,36 +19,50 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 public class Course {
            
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
         
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-    protected String semester;
     protected String name;
     protected String professor;
-    protected String sName;
     
+    @ManyToOne
+    protected School school;
+    @ManyToOne
+    protected Semester semester;
+    
+    @OneToMany(targetEntity=Note.class, mappedBy="note", cascade=CascadeType.ALL)
+    protected List<Note> notes;
     
     public Course(){
-        this.id = 0L;
-        this.semester = null;
+        this.id = Long.MAX_VALUE;
         this.name = null;
         this.professor = null;
-        this.sName = null;
     }
     
-    public Course(Long id, String semester, String name, String professor, String sName){
+    public Course(Long id, String name, String professor, School school, Semester semester){
         this.id = id;
-        this.semester = semester;
         this.name = name;
         this.professor = professor;
-        this.sName = sName;
+        this.school = school;
+        this.semester = semester;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", professor=" + this.professor + ", school=" + this.sName + ", semester=" + this.semester + "]\n";
+        String result = String.format(
+            "Course[id=%d, name='%s', professor='%s']%n");
+        if(notes != null){
+            int i = 0;
+            for(Note note : notes) {
+                i = i + 1;
+                result += String.format(
+                    "#%d. Note[id=%d, lecture='%s', date='%s']%n",
+                    i, note.getId(), note.getLecture(), note.getTime());
+            }
+        }
+        return result;
     }
     
     @Override
@@ -71,16 +90,9 @@ public class Course {
     }
     
     /**
-     * @return the course semester
-     */
-    public String getSemester(){
-        return semester;
-    }
-    
-    /**
      * @param set course semester
      */
-    public void setSemester(String semester){
+    public void setSemester(Semester semester){
         this.semester = semester;
     }
     
@@ -111,18 +123,19 @@ public class Course {
     public void setProfessor(String professor){
         this.professor = professor;
     }
-     
-    /**
-     * @return the school
-     */
-    public String getSchool(){
-        return sName;
-    }
     
     /**
      * @param set school
      */
-    public void setSchool(String sName){
-        this.sName = sName;
+    public void setSchool(School school){
+        this.school = school;
+    }
+    
+    public List<Note> getNotes(){
+        return notes;
+    }
+    
+    public void setNotes (List<Note> notes){
+        this.notes = notes;
     }
 }

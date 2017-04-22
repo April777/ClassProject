@@ -4,8 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import java.util.List;
 
 /**
  * @author April
@@ -14,17 +18,20 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 public class University {
     
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
         
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     protected String name;
     protected String start;
     protected String end;
     
+    @OneToMany(targetEntity=School.class, mappedBy="university", cascade=CascadeType.ALL)
+    protected List<School> schools;
+    
     public University(){ 
-        this.id = 0L;
+        this.id = Long.MAX_VALUE;
         this.name = null;
         this.start = null;
         this.end = null;
@@ -39,7 +46,19 @@ public class University {
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", start=" + this.start + ", end=" + this.end + "]\n";
+        String result = String.format(
+            "University[id=%d, name='%s', start='%s', end='%s']%n",
+            this.id, this.name, this.start, this.end);
+        if(schools != null) {
+            int i = 0;
+            for(School school : schools) {
+                i = i + 1;
+                result += String.format (
+                    "#%d.School[id=%d, name='%s']%n",
+                    i, school.getId(), school.getName());
+            }
+        }
+        return result;
     }
     
     @Override
@@ -106,5 +125,13 @@ public class University {
      */
     public void setEnd(String end){
         this.end = end;
+    }
+    
+    public List<School> getSchools(){
+        return schools;
+    }
+    
+    public void setSchools(List<School> schools) {
+        this.schools = schools;
     }
 }

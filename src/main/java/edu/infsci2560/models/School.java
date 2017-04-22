@@ -4,8 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import java.util.List;
 
 /**
  * @author April
@@ -14,29 +19,46 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 public class School {
     
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
         
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     protected String name;
-    protected String uName;
+    
+    @ManyToOne
+    protected University university;
+    
+    @OneToMany(targetEntity=Course.class, mappedBy="school", cascade=CascadeType.ALL)
+    protected List<Course> courses;
     
     public School(){ 
-        this.id = 0L;
+        this.id = Long.MAX_VALUE;
         this.name = null;
-        this.uName = null;
+        this.university = new University();
     }
     
-    public School(Long id, String name, String uName){
+    public School(Long id, String name, University university){
         this.id = id;
         this.name = name;
-        this.uName = uName;
+        this.university = university;
     }
     
     @Override
     public String toString(){
-        return "[ id=" + this.id + ", name=" + this.name + ", university=" + this.uName + "]\n";
+        String result = String.format(
+            "School [id=%d, name='%s']%n",
+            this.id, this.name);
+        if(courses != null){
+            int i = 0;
+            for(Course course : courses) {
+                i = i + 1;
+                result += String.format(
+                    "#%d. Course[id=%d, name='%s', professor='%s']%n",
+                    i, course.getId(), course.getName(), course.getProfessor());
+            }
+        }
+        return result;
     }
     
     @Override
@@ -76,18 +98,19 @@ public class School {
     public void setName(String name){
         this.name = name;
     }
-    
-    /**
-     * @return the University
-     */
-    public String getUniversity(){
-        return uName;
-    }    
-    
+
     /**
      * @param uName
      */    
-    public void setUniversity(String uName){
-        this.uName = uName;
+    public void setUniversity(University university){
+        this.university = university;
+    }
+    
+    public List<Course> getCourses(){
+        return courses;
+    }
+    
+    public void setCourses (List<Course> courses){
+        this.courses = courses;
     }
 }
