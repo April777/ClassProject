@@ -10,26 +10,28 @@
             <table style="border: 1px solid black">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Semester</th>
                     <th>Course List</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>                
-                <tr data-th-each="school : ${schools}">
-                    <td data-th-text="${school.id}"></td>
-                    <td data-th-text="${school.name}"></td>
+                <tr data-th-each="semester : ${semesters}">
+                    <td data-th-text="${semester.id}"></td>
+                    <td data-th-text="${semester.year}"></td>
+                    <td data-th-text="${semester.type}"></td>
                     <td>
                         <ul>
-                            <li data-th-each="course : ${school.courses}" data-th-text="${course.name}"></li>
+                            <li data-th-each="course : ${semester.courses}" data-th-text="${course.name}"></li>
                         </ul>
                     </td>
                     <td>
-                        <form data-th-object="${school.id}" data-th-action="@{/schools/delete/}+${school.id}" data-th-method="delete" onsubmit="return confirm('Are you sure of deleting?')">
+                        <form data-th-object="${semester.id}" data-th-action="@{/semesters/delete/}+${semester.id}" data-th-method="delete" onsubmit="return confirm('Are you sure of deleting?')">
                             <input type="submit" value="delete" />
                         </form>
                     </td>
                     <td>
-                        <a data-th-object="${school.id}" data-th-href="@{/schoolEdit/edit/}+${school.id}">edit</a>
+                        <a data-th-object="${semester.id}" data-th-href="@{/semesterEdit/edit/}+${semester.id}">edit</a>
                     </td>
                     
                 </tr>
@@ -37,11 +39,14 @@
         </div>
         
         <hr />
-        Add University<br />
-        <form data-th-action="@{/schools/add}" name="addSchoolForm" method="post">
-            Name: <input type="text" name="name" /><br />
-
-            <input type="submit" value="Add School"/>
+        Add Semester<br />
+        <form data-th-action="@{/semesters/add}" name="addSemesterForm" method="post">
+            Year: <input type="text" name="year" /><br />
+            Type: <br />
+            <input type="radio" name="type" value="Fall" /> Fall<br />
+            <input type="radio" name="type" value="Spring" /> Spring<br />
+            <input type="radio" name="type" value="Summer" /> Summer<br />
+            <input type="submit" value="Add Semester"/>
         </form>
         
         <form data-th-action="@{/logout}" method="post">
