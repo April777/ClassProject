@@ -1,10 +1,92 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>University</title>
+        <title>University</title>  
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			/* Remove the navbar's default margin-bottom and rounded borders */ 
+			.navbar {
+			  margin-bottom: 0;
+			  border-radius: 0;
+			}
+			
+			/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+			.row.content {height: 450px}
+			
+			/* Set gray background color and 100% height */
+			.sidenav {
+			  padding-top: 20px;
+			  background-color: #f1f1f1;
+			  height: 100%;
+			}
+			
+			/* Set black background color, white text and some padding */
+			footer {
+			  background-color: #555;
+			  color: white;
+			  padding: 15px;
+			}
+			
+			/* On small screens, set height to 'auto' for sidenav and grid */
+			@media screen and (max-width: 767px) {
+			  .sidenav {
+				height: auto;
+				padding: 15px;
+			  }
+			  .row.content {height:auto;} 
+			}
+		</style>
     </head>
-    <body>
-        <h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s university list</h1>
+    <body>	
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" data-th-href="@{/home}">Logo</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a data-th-href="@{/home}">Home</a></li>
+						<li class="active"><a data-th-href="@{/universities}">University</a></li>
+						<li><a data-th-href="@{/schools}">School</a></li>
+						<li><a data-th-href="@{/semesters}">Semester</a></li>
+						<li><a data-th-href="@{/courses}">Course</a></li>
+						<li><a data-th-href="@{/notes}">Note</a></li>
+						<li><a data-th-href="@{/about}">About</a></li>
+						<li><a data-th-href="@{/contact}">Contact</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						
+						<li>
+							<form data-th-action="@{/logout}" method="post">
+								<input type="submit" value="Sign Out" class="btn btn-link"/>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		  
+		<div class="container-fluid text-center">    
+			<div class="row content">
+				<div class="col-sm-2 sidenav">
+					
+				</div>
+				<div class="col-sm-8 text-left" name="about"> 
+					<h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s university list</h1>
 
         <div>
             <table style="border: 1px solid black">
@@ -49,9 +131,24 @@
 
             <input type="submit" value="Add University"/>
         </form>
-        
-        <form data-th-action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+				</div>
+				<div class="col-sm-2 sidenav">
+					
+				</div>
+			</div>
+		</div>
+
+		<footer class="navbar-fixed-bottom text-center">			
+			<div class="text-center">
+				<h4>Related Links</h4>
+				<table class="table text-center">
+					<tr>			
+						<td><a href="https://www.pitt.edu/">University of Pittsburgh</a></td>
+						<td><a href="http://www.upt.pitt.edu/textbooks-0">Text books</a></td>
+						<td><a href="http://www.courses.as.pitt.edu/">Course Description</a></td>
+					</tr>
+				</table>
+			</div>			
+		</footer>
     </body>
 </html>

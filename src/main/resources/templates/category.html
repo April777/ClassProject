@@ -69,9 +69,7 @@
 						<li><a data-th-href="@{/contact}">Contact</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s study room</h1>
-						</li>
+						
 						<li>
 							<form data-th-action="@{/logout}" method="post">
 								<input type="submit" value="Sign Out" class="btn btn-link"/>
@@ -88,7 +86,7 @@
 					
 				</div>
 				<div class="col-sm-8 text-left" name="about"> 
-					<h1>About</h1>			
+					<h1>Home</h1>			
                         <p id="university">Click <a data-th-href="@{/universities}">here</a> to universities.</p><br />
                         <p id="school">Click <a data-th-href="@{/schools}">here</a> to schools.</p><br />
                         <p id="course">Click <a data-th-href="@{/courses}">here</a> to courses.</p><br />
