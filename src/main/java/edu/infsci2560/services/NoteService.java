@@ -40,4 +40,9 @@ public class NoteService {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>(repository.save(note), headers, HttpStatus.OK);
     }
+    
+    @RequestMapping(method = RequestMethod.DELETE, consumes="application/json", produces = "application/json")
+    public void delete(@PathVariable("id") Long id) {
+        repository.delete(repository.findOne(id));
+    }
 }

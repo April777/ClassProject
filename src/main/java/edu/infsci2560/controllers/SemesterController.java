@@ -1,6 +1,7 @@
 package edu.infsci2560.controllers;
 
 import edu.infsci2560.models.Semester;
+import edu.infsci2560.models.Course;
 import edu.infsci2560.repositories.SemesterRepository;
 
 import javax.validation.Valid;
@@ -24,20 +25,36 @@ public class SemesterController {
         return new ModelAndView("semesters", "semesters", repository.findAll());
     }
     
-    @RequestMapping(value = "semesters/{id}", method = RequestMethod.GET)
-    public ModelAndView index(@PathVariable Long id) {        
-        return new ModelAndView("semesters", "semesters", repository.findOne(id));
-    }
-    
     @RequestMapping(value = "semesters/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView create(@ModelAttribute @Valid Semester semester, BindingResult result) {
+    public ModelAndView create(@ModelAttribute Semester semester, BindingResult result) {
+        for(Course course : semester.getCourses()){
+            course.setSemester(semester);
+        }
         repository.save(semester);
         return new ModelAndView("semesters", "semesters", repository.findAll());
     }
     
-    @RequestMapping(value = "semesters/{id}", method = RequestMethod.DELETE, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView delete( @Valid Semester semester, BindingResult result) {
-        repository.delete(semester);
-        return new ModelAndView("semesters", "semesters", repository.findAll());
+    @RequestMapping(value = "semesters/delete/{id}", method = RequestMethod.DELETE)
+    public ModelAndView delete(@PathVariable("id") Long id) {
+        repository.deleteById(id);
+        return new ModelAndView("redirect:/semesters");
     }  
+    
+    @RequestMapping(value = "semesterEdit/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView index(@PathVariable("id") Long id) {
+        Semester semester = repository.findById(id);
+        ModelAndView mv = new ModelAndView("semesterEdit");
+        mv.addObject("semester", semester);
+        return mv;
+    }
+    
+    @RequestMapping(value = "semesterEdit/edit/{id}", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
+    public ModelAndView update(@PathVariable("id") Long id, @ModelAttribute  @Valid Semester semester, BindingResult result) {
+          repository.deleteById(id);
+          for (Course course : semester.getCourses()){
+              course.setSemester(semester);
+          }
+          repository.save(semester);
+          return new ModelAndView("redirect:/semesters");
+      }
 }

@@ -16,28 +16,34 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class NotesController {
     @Autowired
-    private NoteRepository repository;
-    
+    private NoteRepository repository;    
     
     @RequestMapping(value = "notes", method = RequestMethod.GET)
     public ModelAndView index() {        
         return new ModelAndView("notes", "notes", repository.findAll());
     }
     
-    @RequestMapping(value = "notes/{id}", method = RequestMethod.GET)
-    public ModelAndView index(@PathVariable Long id) {        
-        return new ModelAndView("notes", "notes", repository.findOne(id));
-    }
-    
     @RequestMapping(value = "notes/add", method = RequestMethod.POST, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView create(@ModelAttribute @Valid Note note, BindingResult result) {
+    public ModelAndView create(@ModelAttribute Note note, BindingResult result) {
         repository.save(note);
         return new ModelAndView("notes", "notes", repository.findAll());
     }
     
-    @RequestMapping(value = "notes/{id}", method = RequestMethod.DELETE, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView delete( @Valid Note note, BindingResult result) {
-        repository.delete(note);
-        return new ModelAndView("notes", "notes", repository.findAll());
+    @RequestMapping(value = "notes/delete/{id}", method = RequestMethod.DELETE)
+        public ModelAndView delete(@PathVariable("id") Long id) {
+        repository.deleteById(id);
+        return new ModelAndView("redirect:/notes");
+    }
+    
+    @RequestMapping(value = "noteEdit/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView index(@PathVariable("id") Long id) {
+        return new ModelAndView("notes", "notes", repository.findOne(id));
     }  
+    
+    @RequestMapping(value = "noteEdit/edit/{id}", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
+    public ModelAndView update(@PathVariable("id") Long id, @ModelAttribute  @Valid Note note, BindingResult result) {
+        repository.deleteById(id);
+        repository.save(note);
+        return new ModelAndView("redirect:/notes");
+    }
 }

@@ -27,17 +27,18 @@ public class User {
     protected Long id;
     protected String firstName;
     protected String lastName;
-    protected Gender gender;
-    protected String profile;
+    //protected Gender gender;
+    //protected String profile;
     
     public User(){
         this.id = Long.MAX_VALUE;
         this.firstName = null;
         this.lastName = null;
-        this.gender = gender.UNKNOWN;
-        this.profile = null;
+        //this.gender = gender.UNKNOWN;
+        //this.profile = null;
     }
     
+    /*
     public User(Long id, String firstName, String lastName, Gender gender, String profile){
         this.id = id;
         this.firstName = firstName;
@@ -45,10 +46,18 @@ public class User {
         this.gender = gender;
         this.profile = profile;
     }
+    */
+    
+    public User(Long id, String firstName, String lastName){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
     
     @Override
     public String toString(){
-        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", gender=" + this.gender + ", profile=" + this.profile + "]\n";
+        //return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + ", gender=" + this.gender + ", profile=" + this.profile + "]\n";
+        return "[id=" + this.id + ", Name=" + this.firstName + " " + this.lastName + "]\n";
     }
     
     @Override
@@ -101,33 +110,5 @@ public class User {
      */
     public void setLastName(String lastName){
         this.lastName = lastName;
-    }
-    
-    /**
-     * @return the gender
-     */
-    public Gender getGender(){
-        return this.gender;
-    }
-    
-    /**
-     * @param set gender
-     */
-    public void setGender(Gender gender){
-        this.gender = gender;
-    }
-    
-    /**
-     * @return the profile
-     */
-    public String getProfile(){
-        return this.profile;
-    }
-    
-    /**
-     * @param set the profile
-     */
-    public void setProfile(String profile){
-        this.profile = profile;
     }
 }

@@ -32,7 +32,7 @@ public class Course {
     @ManyToOne
     protected Semester semester;
     
-    @OneToMany(targetEntity=Note.class, mappedBy="note", cascade=CascadeType.ALL)
+    @OneToMany(targetEntity=Note.class, mappedBy="course", cascade=CascadeType.ALL)
     protected List<Note> notes;
     
     public Course(){
@@ -41,12 +41,10 @@ public class Course {
         this.professor = null;
     }
     
-    public Course(Long id, String name, String professor, School school, Semester semester){
+    public Course(Long id, String name, String professor){
         this.id = id;
         this.name = name;
         this.professor = professor;
-        this.school = school;
-        this.semester = semester;
     }
     
     @Override

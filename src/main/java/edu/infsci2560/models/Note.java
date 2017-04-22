@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.CascadeType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -33,13 +32,12 @@ public class Note {
 
     }
     
-    public Note(Long id, String lecture, String time, String content, int importance, Course course){
+    public Note(Long id, String lecture, String time, String content, int importance){
         this.id = id;
         this.lecture = lecture;
         this.time = time;
         this.content = content;
         this.importance = importance;
-        this.course = course;
     }
     
     @Override
