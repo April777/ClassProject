@@ -56,10 +56,10 @@
 					<ul class="nav navbar-nav">
 						<li><a data-th-href="@{/home}">Home</a></li>
 						<li><a data-th-href="@{/universities}">University</a></li>
-						<l class="active"><a data-th-href="@{/schools}">School</a></li>
+						<li><a data-th-href="@{/schools}">School</a></li>
 						<li><a data-th-href="@{/semesters}">Semester</a></li>
 						<li><a data-th-href="@{/courses}">Course</a></li>
-						<li><a data-th-href="@{/notes}">Note</a></li>
+						<li class="active"><a data-th-href="@{/notes}">Note</a></li>
 						<li><a data-th-href="@{/about}">About</a></li>
 						<li><a data-th-href="@{/contact}">Contact</a></li>
 					</ul>
@@ -81,9 +81,12 @@
 					
 				</div>
 				<div class="col-sm-8 text-left" name="about"> 
-					 <form data-th-object="${school}" data-th-action="@{/schoolEdit/edit/}+$(school.id})}" data-th-method="put" name="editSchoolForm" role="form">
-                        Name: <input type="text" name="name" data-th-value="${school.name}" /><br />
-                        <input type="submit" value="Update School"/><br />
+					 <form data-th-object="${notes}" data-th-action="@{/noteEdit/edit/}+$(notes.id})}" data-th-method="put" name="editNoteForm" role="form">
+                        Lecture: <input type="text" name="lecture" data-th-field="*{lecture}" /><br />
+                        Date:
+                        Importance:
+                        Content:
+                        <input type="submit" value="Update Note"/><br />
                  
                     </form>
                 
