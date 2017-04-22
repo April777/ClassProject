@@ -118,10 +118,10 @@
         <hr />
         Add Note<br />
         <form data-th-action="@{/notes/add}" name="addNoteForm" method="post">
-            Lecture: <input type="text" name="leacture" /><br />
+            Lecture: <input type="text" name="lecture" /><br />
             Date(MM/DD/YYYY): <input type="text" name="time" /><br />
             importance(1-5,intiger): <input type="text" name="importance" /><br />
-            Content: <input type="text" name="content" /><br />
+            Content: <input type="textarea" rows="10" cols="80" name="content" /><br />
 
             <input type="submit" value="Add Note"/>
         </form>
