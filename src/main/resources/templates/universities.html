@@ -13,18 +13,28 @@
                     <th>Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+                    <th>Schools</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>                
                 <tr data-th-each="university : ${universities}">
                     <td data-th-text="${university.id}"></td>
                     <td data-th-text="${university.name}"></td>
                     <td data-th-text="${university.start}"></td>
                     <td data-th-text="${university.end}"></td>
-                    <td><a data-th-href="@{/universities/edit/{id}(id=${university.id})}">edit</a></td>
                     <td>
-                        <form data-th-object="${universitiy}" data-th-action="@{/universities/{id}{id=${university.id}}}" data-th-method="delete">
+                        <ul data-th-each="school : ${university.schools}">
+                            <li data-th-text="|${school.name}|"></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <form data-th-object="${universitiy.id}" data-th-action="@{/universities/delete/{id}+${university.id}" data-th-method="delete" onsubmit="return confirm('Are you sure of deleting?')">
                             <input type="submit" value="delete" />
                         </form>
                     </td>
+                    <td><a data-th-object="${university.id}" data-th-href="@{/universityEdit/edit/}+${university.id})}">edit</a>
+                    </td>
+                    
                 </tr>
             </table>
         </div>
