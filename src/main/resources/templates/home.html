@@ -1,25 +1,26 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
-        <title>Welcome to your notes!</title>
-        <style type = "text/css">
-            p{
-                    margin: auto;
-                    width: 60%;
-                    border: 3px solid #73AD21;
-                    padding: 10px;
-            }
-        </style>
+        <title>Manage Your Notes!</title>  
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
     </head>
     <body>
-        <h1>Welcome!</h1>
-
-        <div class="center">
-            <p id="welcome">Hi, welcome you to my website! Share-Class-Notes provides students a platform to communicate, share the knowledge.Hope you like it! :)</p>
-            <br /><br />
-            <p id="login">Click <a data-th-href="@{/category}">here</a> to login.</p>
-            <br /><br />
-            <!-- <p id="course">Click <a data-th-href="@{/courses}">here</a> to see all courses.</p> -->
-        </div>    
+		<div class="jumbotron text-center">
+			<h1>Welcome to Manage Class Note</h1>
+			<p>The best platform for the best students!</p> 
+		</div>
+  
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<p class="text-center">Click <a data-th-href="@{/category}">here</a> to login and manage your notes.</p>
+				</div>
+			</div>
+		</div>
     </body>
 </html>
