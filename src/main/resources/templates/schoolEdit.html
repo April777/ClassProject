@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About</title>  
+        <title>School</title>  
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" /
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -56,11 +56,11 @@
 					<ul class="nav navbar-nav">
 						<li><a data-th-href="@{/home}">Home</a></li>
 						<li><a data-th-href="@{/universities}">University</a></li>
-						<li><a data-th-href="@{/schools}">School</a></li>
+						<l class="active"i><a data-th-href="@{/schools}">School</a></li>
 						<li><a data-th-href="@{/semesters}">Semester</a></li>
 						<li><a data-th-href="@{/courses}">Course</a></li>
 						<li><a data-th-href="@{/notes}">Note</a></li>
-						<li class="active"><a data-th-href="@{/about}">About</a></li>
+						<li><a data-th-href="@{/about}">About</a></li>
 						<li><a data-th-href="@{/contact}">Contact</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -81,8 +81,13 @@
 					
 				</div>
 				<div class="col-sm-8 text-left" name="about"> 
-					<h1>About</h1>
-					<p>This is a full-stack-website project for course INFSCI 2560 Web Technologies & Standards.</p>
+					 <form data-th-object="${school}" data-th-action="@{/schoolEdit/edit/}+$(school.id})}" data-th-method="put" name="editSchoolForm" role="form">
+                        Name: <input type="text" name="name" data-th-value="${school.name}" /><br />
+                        <input type="submit" value="Update School"/><br />
+                 
+                    </form>
+                
+            
 				</div>
 				<div class="col-sm-2 sidenav">
 					
@@ -98,6 +103,7 @@
 						<td><a href="https://www.pitt.edu/">University of Pittsburgh</a></td>
 						<td><a href="http://www.upt.pitt.edu/textbooks-0">Text books</a></td>
 						<td><a href="http://www.courses.as.pitt.edu/">Course Description</a></td>
+					</tr>
 				</table>
 			</div>			
 		</footer>
