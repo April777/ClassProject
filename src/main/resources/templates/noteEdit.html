@@ -83,9 +83,9 @@
 				<div class="col-sm-8 text-left" name="about"> 
 					 <form data-th-action="@{/notes/edit/{id}(id=${note.id})}" data-th-object="${note}" data-th-method="put" name="editNoteForm" role="form">
                         Lecture: <input type="text" name="lecture" data-th-value="${note.lecture}" /><br />
-                        Date:
-                        Importance:
-                        Content:
+                        Date: <input type="text" name="time" data-th-value="${note.time}" /><br />
+                        Importance: <input type="text" name="importance" data-th-value="${note.importance}" /><br />
+                        Content: <input type="text" name="content" data-th-value="${note.content}" /><br />
                         <input type="submit" value="Update Note"/><br />
                  
                     </form>
