@@ -35,14 +35,15 @@ public class NotesController {
         return new ModelAndView("redirect:/notes");
     }
     
-    @RequestMapping(value = "noteEdit/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "notes/edit/{id}", method = RequestMethod.GET)
     public ModelAndView index(@PathVariable("id") Long id) {
-        return new ModelAndView("notes", "notes", repository.findOne(id));
+        Note note = repository.findOne(id);
+        return new ModelAndView("noteEdit", "note", note);
     }  
     
-    @RequestMapping(value = "noteEdit/edit/{id}", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
-    public ModelAndView update(@PathVariable("id") Long id, @ModelAttribute  @Valid Note note, BindingResult result) {
-        repository.deleteById(id);
+    @RequestMapping(value = "notes/edit/{id}", method = RequestMethod.PUT, consumes="application/x-www-form-urlencoded", produces = "application/json")
+    public ModelAndView update(@Valid Note note, BindingResult result) {
+        
         repository.save(note);
         return new ModelAndView("redirect:/notes");
     }

@@ -81,8 +81,8 @@
 					
 				</div>
 				<div class="col-sm-8 text-left" name="about"> 
-					 <form data-th-object="${note}" data-th-action="@{/noteEdit/edit/}+$(notes.id})}" data-th-method="put" name="editNoteForm" role="form">
-                        Lecture: <input type="text" name="lecture" data-th-field="*{lecture}" /><br />
+					 <form data-th-action="@{/notes/edit/{id}{id=${note.id}}" data-th-object="${note}" data-th-method="put" name="editNoteForm" role="form">
+                        Lecture: <input type="text" name="lecture" data-th-value="${note.lecture}" /><br />
                         Date:
                         Importance:
                         Content:
