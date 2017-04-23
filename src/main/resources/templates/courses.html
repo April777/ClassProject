@@ -84,13 +84,12 @@
 					<h1 data-th-inline="text">[[${#httpServletRequest.remoteUser}]]'s course list</h1>
 
         <div>
-            <table style="border: 1px solid black">
+            <table class="table table-hover">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Professor</th>
                     <th>Note List</th>
-                    <th>Edit</th>
                     <th>Delete</th>
                 </tr>                
                 <tr data-th-each="course : ${courses}">
@@ -106,9 +105,6 @@
                         <form data-th-object="${course.id}" data-th-action="@{/courses/delete/}+${course.id}" data-th-method="delete" onsubmit="return confirm('Are you sure of deleting?')">
                             <input type="submit" value="delete" />
                         </form>
-                    </td>
-                    <td>
-                        <a data-th-object="${course.id}" data-th-href="@{/courseEdit/edit/}+${course.id}">edit</a>
                     </td>
                     
                 </tr>
