@@ -42,7 +42,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Configured developer workspace.
 - Deployed to Heroku.
 
-[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.4...HEAD
+[Unreleased]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.5...HEAD
+[v1.5]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.4...v1.5
 [v1.4]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.3...v1.4
 [v1.3]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.2...v1.3
 [v1.2]: https://github.com/infsci2560sp17/full-stack-web-April777/compare/v1.1...v1.2
