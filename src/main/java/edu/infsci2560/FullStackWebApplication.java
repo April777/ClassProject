@@ -83,19 +83,25 @@ public class FullStackWebApplication {
         Course course1 = new Course(
             1L,
             "Human Information Processing", 
-            "Hirtle"
+            "Hirtle",
+            school1,
+            sem2
         );
         
         Course course2 = new Course(
             2L,
             "Data Mining", 
-            "Yuru Lin"
+            "Yuru Lin",
+            school1,
+            sem1
         );
         
         Course course3 = new Course(
             3L,
             "Web Technologies & Standards", 
-            "Brian Kolowitz"
+            "Brian Kolowitz",
+            school1,
+            sem1
         );
         
         List<Course> courses1 = new ArrayList<Course>(){{
@@ -121,7 +127,8 @@ public class FullStackWebApplication {
             "HTML&CSS", 
             "03/22/2017", 
             "The introduction to HTML&CSS", 
-            2
+            2,
+            course3
         );
         
         Note note2 = new Note(
@@ -129,7 +136,8 @@ public class FullStackWebApplication {
             "Feature selection", 
             "03/21/2017", 
             "FSelector package", 
-            3
+            3,
+            course2
         );
         
         Note note3 = new Note(
@@ -137,7 +145,8 @@ public class FullStackWebApplication {
             "JSON", 
             "03/29/2017", 
             "JSON", 
-            4
+            4,
+            course3
         );
 
         List<Note> notes1 = new ArrayList<Note>(){{

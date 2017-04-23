@@ -41,10 +41,12 @@ public class Course {
         this.professor = null;
     }
     
-    public Course(Long id, String name, String professor){
+    public Course(Long id, String name, String professor, School school, Semester semester){
         this.id = id;
         this.name = name;
         this.professor = professor;
+        this.school = school;
+        this.semester = semester;
     }
     
     @Override

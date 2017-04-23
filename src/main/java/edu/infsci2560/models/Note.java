@@ -32,12 +32,13 @@ public class Note {
 
     }
     
-    public Note(Long id, String lecture, String time, String content, int importance){
+    public Note(Long id, String lecture, String time, String content, int importance, Course course){
         this.id = id;
         this.lecture = lecture;
         this.time = time;
         this.content = content;
         this.importance = importance;
+        this.course = course;
     }
     
     @Override
