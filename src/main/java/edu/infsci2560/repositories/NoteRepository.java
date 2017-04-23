@@ -10,5 +10,6 @@ import javax.transaction.Transactional;
  */
 
 public interface NoteRepository extends PagingAndSortingRepository<Note, Long> {
-
+    @Transactional
+    Long deleteById(Long Id);
 }
