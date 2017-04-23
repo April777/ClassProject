@@ -55,7 +55,7 @@
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						<li><a data-th-href="@{/home}">Home</a></li>
-						<li><a data-th-href="@{/universities}">University</a></li>
+					
 						<li><a data-th-href="@{/schools}">School</a></li>
 						<li><a data-th-href="@{/semesters}">Semester</a></li>
 						<li><a data-th-href="@{/courses}">Course</a></li>
@@ -90,7 +90,7 @@
                     <th>Lecture</th>
                     <th>Date</th>
                     <th>Imortance</th>
-                    <th>Content</th>
+                    <th style="width:200px">Content</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>                
@@ -122,7 +122,7 @@
             Date(MM/DD/YYYY): <input type="text" name="time" /><br />
             importance(1-5,intiger): <input type="text" name="importance" /><br />
             Content:<br />
-            <textarea rows="10" cols="80" name="content" form="addNoteForm"></textarea>
+            <input type="text" name="content" style="width: 300px;ength:300px" />
             <br />
 
             <input type="submit" value="Add Note"/>

@@ -55,7 +55,7 @@
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						<li><a data-th-href="@{/home}">Home</a></li>
-						<li><a data-th-href="@{/universities}">University</a></li>
+					
 						<li><a data-th-href="@{/schools}">School</a></li>
 						<li><a data-th-href="@{/semesters}">Semester</a></li>
 						<li class="active"><a data-th-href="@{/courses}">Course</a></li>
@@ -98,8 +98,8 @@
                     <td data-th-text="${course.name}"></td>
                     <td data-th-text="${course.professor}"></td>
                     <td>
-                        <ul>
-                            <li data-th-each="note : ${course.notes}" data-th-text="|${note.id} ${note.lecture}|"></li>
+                        <ul data-th-each="note : ${course.notes}">
+                            <li data-th-text="|${note.id} ${note.lecture}|"></li>
                         </ul>
                     </td>
                     <td>
